@@ -459,6 +459,49 @@ summary:hover {
   font-family: monospace;
 }
 
+/* Knowledge Check Section */
+.quiz-section {
+  margin: 2rem 0;
+}
+
+.qa-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0 2.5rem;
+}
+
+.qa-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: var(--card-shadow);
+}
+
+.qa-card h4 {
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.qa-card p {
+  margin-bottom: 0.75rem;
+}
+
+.qa-card p:last-child {
+  margin-bottom: 0;
+}
+
+.qa-card strong {
+  color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+  .qa-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 768px) {
   .component-grid,
   .tools-grid,
