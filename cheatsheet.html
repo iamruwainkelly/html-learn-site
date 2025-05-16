@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>HTML Cheatsheet and Quick Reference</title>
+    <meta name="description" content="Quick reference guide for HTML elements, attributes, and best practices" />
+    <meta property="og:title" content="HTML Cheatsheet" />
+    <meta property="og:type" content="article" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <main>
+      <article>
+        <h1>HTML Quick Reference Guide</h1>
+
+        <section id="basic-structure">
+          <h2>Basic HTML Structure</h2>
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+    &lt;title&gt;Page Title&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- Content goes here --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </section>
+
+        <section id="text-elements">
+          <h2>Text Elements</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Element</th>
+                <th>Description</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>&lt;p&gt;</code></td>
+                <td>Paragraph</td>
+                <td><code>&lt;p&gt;Text content&lt;/p&gt;</code></td>
+              </tr>
+              <tr>
+                <td><code>&lt;h1&gt;</code> - <code>&lt;h6&gt;</code></td>
+                <td>Headings</td>
+                <td><code>&lt;h1&gt;Main heading&lt;/h1&gt;</code></td>
+              </tr>
+              <tr>
+                <td><code>&lt;em&gt;</code></td>
+                <td>Emphasized text</td>
+                <td><code>&lt;em&gt;Italic text&lt;/em&gt;</code></td>
+              </tr>
+              <tr>
+                <td><code>&lt;strong&gt;</code></td>
+                <td>Strong importance</td>
+                <td><code>&lt;strong&gt;Bold text&lt;/strong&gt;</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="links-images">
+          <h2>Links and Images</h2>
+          <pre><code>&lt;!-- Basic link --&gt;
+&lt;a href="url"&gt;Link text&lt;/a&gt;
+
+&lt;!-- Link with target --&gt;
+&lt;a href="url" target="_blank"&gt;Opens in new tab&lt;/a&gt;
+
+&lt;!-- Basic image --&gt;
+&lt;img src="image.jpg" alt="Description"&gt;
+
+&lt;!-- Responsive image --&gt;
+&lt;img 
+  srcset="small.jpg 300w, medium.jpg 600w, large.jpg 900w"
+  sizes="(max-width: 600px) 300px, 900px"
+  src="fallback.jpg" 
+  alt="Description"&gt;</code></pre>
+        </section>
+
+        <section id="lists">
+          <h2>Lists</h2>
+          <div class="example">
+            <h3>Unordered List</h3>
+            <pre><code>&lt;ul&gt;
+  &lt;li&gt;Item 1&lt;/li&gt;
+  &lt;li&gt;Item 2&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+            <h3>Ordered List</h3>
+            <pre><code>&lt;ol&gt;
+  &lt;li&gt;First item&lt;/li&gt;
+  &lt;li&gt;Second item&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+            <h3>Description List</h3>
+            <pre><code>&lt;dl&gt;
+  &lt;dt&gt;Term&lt;/dt&gt;
+  &lt;dd&gt;Description&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+          </div>
+        </section>
+
+        <section id="forms">
+          <h2>Forms</h2>
+          <pre><code>&lt;form action="/submit" method="post"&gt;
+  &lt;!-- Text input --&gt;
+  &lt;label for="name"&gt;Name:&lt;/label&gt;
+  &lt;input type="text" id="name" name="name" required&gt;
+
+  &lt;!-- Email input --&gt;
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input type="email" id="email" name="email"&gt;
+
+  &lt;!-- Radio buttons --&gt;
+  &lt;input type="radio" id="option1" name="choice"&gt;
+  &lt;label for="option1"&gt;Option 1&lt;/label&gt;
+
+  &lt;!-- Checkbox --&gt;
+  &lt;input type="checkbox" id="check1" name="check"&gt;
+  &lt;label for="check1"&gt;Check me&lt;/label&gt;
+
+  &lt;!-- Select dropdown --&gt;
+  &lt;select name="select"&gt;
+    &lt;option value="1"&gt;Option 1&lt;/option&gt;
+    &lt;option value="2"&gt;Option 2&lt;/option&gt;
+  &lt;/select&gt;
+
+  &lt;!-- Submit button --&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+        </section>
+
+        <section id="tables">
+          <h2>Tables</h2>
+          <pre><code>&lt;table&gt;
+  &lt;caption&gt;Table Caption&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Header 1&lt;/th&gt;
+      &lt;th&gt;Header 2&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Data 1&lt;/td&gt;
+      &lt;td&gt;Data 2&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td colspan="2"&gt;Footer&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+        </section>
+
+        <section id="semantic">
+          <h2>Semantic Elements</h2>
+          <pre><code>&lt;header&gt;
+  &lt;nav&gt;Navigation&lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+  &lt;article&gt;
+    &lt;section&gt;Content section&lt;/section&gt;
+    &lt;aside&gt;Sidebar content&lt;/aside&gt;
+  &lt;/article&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;Footer content&lt;/footer&gt;</code></pre>
+        </section>
+
+        <section id="media">
+          <h2>Media Elements</h2>
+          <pre><code>&lt;!-- Video --&gt;
+&lt;video controls width="640" height="360"&gt;
+  &lt;source src="video.mp4" type="video/mp4"&gt;
+  &lt;track src="captions.vtt" kind="captions"&gt;
+&lt;/video&gt;
+
+&lt;!-- Audio --&gt;
+&lt;audio controls&gt;
+  &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+&lt;/audio&gt;
+
+&lt;!-- Embedded content --&gt;
+&lt;iframe 
+  src="https://example.com" 
+  width="600" 
+  height="400"
+  allowfullscreen&gt;
+&lt;/iframe&gt;</code></pre>
+        </section>
+
+        <section id="metadata">
+          <h2>Metadata and SEO</h2>
+          <pre><code>&lt;!-- Essential meta tags --&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+&lt;meta name="description" content="Page description"&gt;
+&lt;meta name="keywords" content="keywords, separated, by, commas"&gt;
+
+&lt;!-- Open Graph tags --&gt;
+&lt;meta property="og:title" content="Title"&gt;
+&lt;meta property="og:description" content="Description"&gt;
+&lt;meta property="og:image" content="image.jpg"&gt;
+&lt;meta property="og:url" content="https://example.com"&gt;</code></pre>
+        </section>
+
+        <nav class="page-navigation">
+          <a href="index.html">← Back to Index</a>
+        </nav>
+      </article>
+    </main>
+    <script src="js/main.js"></script>
+  </body>
+</html>

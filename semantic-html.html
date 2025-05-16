@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Semantic HTML - Meaningful Structure and Elements</title>
+    <meta name="description" content="Learn about semantic HTML elements and how to use them to create meaningful, accessible web content" />
+    <meta property="og:title" content="Semantic HTML Guide" />
+    <meta property="og:type" content="article" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <main>
+      <article>
+        <h1>Semantic HTML</h1>
+        
+        <section>
+          <h2>Understanding Semantic HTML</h2>
+          <p>Semantic HTML uses elements that carry meaning about the structure and content of a web page, making it more accessible and easier to understand for both humans and machines.</p>
+        </section>
+
+        <section>
+          <h2>Document Structure Elements</h2>
+          <ul>
+            <li>
+              <code>&lt;header&gt;</code>
+              <p>Contains introductory content, navigation, or heading elements</p>
+              <pre><code>&lt;header&gt;
+  &lt;h1&gt;Site Title&lt;/h1&gt;
+  &lt;nav&gt;Site Navigation&lt;/nav&gt;
+&lt;/header&gt;</code></pre>
+            </li>
+            <li>
+              <code>&lt;nav&gt;</code>
+              <p>Contains navigation links</p>
+              <pre><code>&lt;nav&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+            </li>
+            <li>
+              <code>&lt;main&gt;</code>
+              <p>Contains the main content of the document</p>
+            </li>
+            <li>
+              <code>&lt;article&gt;</code>
+              <p>Represents a self-contained composition</p>
+            </li>
+            <li>
+              <code>&lt;section&gt;</code>
+              <p>Groups related content</p>
+            </li>
+            <li>
+              <code>&lt;aside&gt;</code>
+              <p>Contains content tangentially related to the main content</p>
+            </li>
+            <li>
+              <code>&lt;footer&gt;</code>
+              <p>Contains footer information for its nearest sectioning content</p>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Text-Level Semantic Elements</h2>
+          <ul>
+            <li>
+              <code>&lt;em&gt;</code>
+              <p>Emphasis: <em>This text has emphasis</em></p>
+            </li>
+            <li>
+              <code>&lt;strong&gt;</code>
+              <p>Strong importance: <strong>This text is strongly emphasized</strong></p>
+            </li>
+            <li>
+              <code>&lt;cite&gt;</code>
+              <p>Citation: <cite>The HTML Living Standard</cite></p>
+            </li>
+            <li>
+              <code>&lt;time&gt;</code>
+              <p>Time/Date: <time datetime="2025-05-16">May 16, 2025</time></p>
+            </li>
+            <li>
+              <code>&lt;abbr&gt;</code>
+              <p>Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr></p>
+            </li>
+            <li>
+              <code>&lt;address&gt;</code>
+              <p>Contact information for the nearest article or body element</p>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Best Practices</h2>
+          <ul>
+            <li>Use headings (<code>&lt;h1&gt;</code> - <code>&lt;h6&gt;</code>) to create a logical document outline</li>
+            <li>Choose semantic elements over generic <code>&lt;div&gt;</code> elements when possible</li>
+            <li>Use <code>&lt;button&gt;</code> for clickable controls instead of styled <code>&lt;div&gt;</code> elements</li>
+            <li>Include proper ARIA attributes when semantic HTML isn't sufficient</li>
+            <li>Maintain a logical heading hierarchy (don't skip levels)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Example Page Structure</h2>
+          <pre><code>&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;Website Title&lt;/h1&gt;
+    &lt;nav&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;article&gt;
+      &lt;h2&gt;Article Title&lt;/h2&gt;
+      &lt;p&gt;Article content...&lt;/p&gt;
+      
+      &lt;section&gt;
+        &lt;h3&gt;Section Heading&lt;/h3&gt;
+        &lt;p&gt;Section content...&lt;/p&gt;
+      &lt;/section&gt;
+    &lt;/article&gt;
+
+    &lt;aside&gt;
+      &lt;h2&gt;Related Content&lt;/h2&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Related link 1&lt;/li&gt;
+        &lt;li&gt;Related link 2&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/aside&gt;
+  &lt;/main&gt;
+
+  &lt;footer&gt;
+    &lt;p&gt;&copy; 2025 Your Name&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;</code></pre>
+        </section>
+
+        <nav class="page-navigation">
+          <a href="index.html">← Back to Index</a>
+          <a href="forms.html">Next: Forms and Input →</a>
+        </nav>
+      </article>
+    </main>
+    <script src="js/main.js"></script>
+  </body>
+</html>

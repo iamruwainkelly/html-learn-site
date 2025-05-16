@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>HTML Basics - A Comprehensive Guide</title>
+    <meta name="description" content="A comprehensive guide to HTML basics, elements, attributes, and best practices" />
+    <meta property="og:title" content="HTML Basics Tutorial" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="path-to-image.jpg" />
+    <meta property="og:url" content="https://yourdomain.com/blog" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <main>
+      <article>
+        <header>
+          <h1>Basic HTML Review</h1>
+          <div class="meta">
+            <time datetime="2025-05-16">May 16, 2025</time>
+            <span class="author">By Ruwain Kelly</span>
+          </div>
+        </header>
+
+        <section class="content">
+          <h2>HTML Basics</h2>
+          
+          <section>
+            <h3>Role of HTML and Basic Structure</h3>
+            <p>HTML represents the content and structure of web pages. Elements are the building blocks for an HTML document, consisting of opening and closing tags:</p>
+            <pre><code>&lt;elementName&gt;Content goes here&lt;/elementName&gt;</code></pre>
+          </section>
+
+          <section>
+            <h3>Void Elements</h3>
+            <p>Void elements cannot have content and only have a start tag. Examples include:</p>
+            <pre><code>&lt;img&gt;
+&lt;meta&gt;</code></pre>
+            <p>Both of these syntaxes are acceptable:</p>
+            <pre><code>&lt;img&gt;
+&lt;img/&gt;</code></pre>
+          </section>
+
+          <section>
+            <h3>Common HTML Elements</h3>
+            
+            <h4>Headings</h4>
+            <p>HTML provides six levels of headings:</p>
+            <div class="example">
+              <h1>H1: Most important heading</h1>
+              <h2>H2: Second level heading</h2>
+              <h3>H3: Third level heading</h3>
+              <h4>H4: Fourth level heading</h4>
+              <h5>H5: Fifth level heading</h5>
+              <h6>H6: Least important heading</h6>
+            </div>
+
+            <h4>Text Elements</h4>
+            <p>Common text elements include:</p>
+            <ul>
+              <li><code>&lt;p&gt;</code> - For paragraphs</li>
+              <li><code>&lt;em&gt;</code> - For emphasis</li>
+              <li><code>&lt;strong&gt;</code> - For strong importance</li>
+            </ul>
+
+            <h4>Lists</h4>
+            <div class="example">
+              <h5>Unordered List:</h5>
+              <ul>
+                <li>First item</li>
+                <li>Second item</li>
+                <li>Third item</li>
+              </ul>
+
+              <h5>Ordered List:</h5>
+              <ol>
+                <li>First step</li>
+                <li>Second step</li>
+                <li>Third step</li>
+              </ol>
+            </div>
+          </section>
+
+          <section>
+            <h3>Images and Media</h3>
+            <p>Images are added using the <code>img</code> element:</p>
+            <pre><code>&lt;img src="image.jpg" alt="Description of image"&gt;</code></pre>
+            
+            <h4>Figure with Caption</h4>
+            <figure>
+              <img src="path-to-your-image.jpg" alt="Example figure">
+              <figcaption>A sample figure with caption</figcaption>
+            </figure>
+          </section>
+
+          <section>
+            <h3>Links and Navigation</h3>
+            <p>Links are created using the anchor (<code>&lt;a&gt;</code>) element:</p>
+            <pre><code>&lt;a href="https://example.com"&gt;Visit Example&lt;/a&gt;</code></pre>
+            
+            <h4>Link Target Types:</h4>
+            <ul>
+              <li><code>_self</code> - Default, opens in same window</li>
+              <li><code>_blank</code> - Opens in new window/tab</li>
+              <li><code>_parent</code> - Opens in parent frame</li>
+              <li><code>_top</code> - Opens in full window</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Best Practices</h3>
+            <ul>
+              <li>Use semantic HTML elements</li>
+              <li>Include proper meta tags for SEO</li>
+              <li>Provide alt text for images</li>
+              <li>Use appropriate heading hierarchy</li>
+              <li>Ensure proper document structure</li>
+            </ul>
+          </section>
+        </section>
+      </article>
+      <a href="index.html">← Back to Projects</a>
+    </main>
+    <script src="js/main.js"></script>
+  </body>
+</html>

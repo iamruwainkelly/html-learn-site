@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>HTML Tables - Structure and Elements</title>
+    <meta name="description" content="Learn about HTML table elements and how to create structured, accessible tables" />
+    <meta property="og:title" content="HTML Tables Guide" />
+    <meta property="og:type" content="article" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <main>
+      <article>
+        <h1>HTML Tables</h1>
+        
+        <section>
+          <h2>Table Structure</h2>
+          <p>Tables are used to display tabular data in rows and columns. A proper table structure includes:</p>
+          <ul>
+            <li><code>&lt;table&gt;</code> - Container for the table</li>
+            <li><code>&lt;caption&gt;</code> - Table title/description</li>
+            <li><code>&lt;thead&gt;</code> - Header section</li>
+            <li><code>&lt;tbody&gt;</code> - Main content</li>
+            <li><code>&lt;tfoot&gt;</code> - Footer section</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Basic Table Elements</h2>
+          <ul>
+            <li><code>&lt;tr&gt;</code> - Table row</li>
+            <li><code>&lt;th&gt;</code> - Header cell</li>
+            <li><code>&lt;td&gt;</code> - Data cell</li>
+          </ul>
+          
+          <h3>Simple Table Example</h3>
+          <pre><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Header 1&lt;/th&gt;
+    &lt;th&gt;Header 2&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Data 1&lt;/td&gt;
+    &lt;td&gt;Data 2&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+        </section>
+
+        <section>
+          <h2>Table Sections</h2>
+          <pre><code>&lt;table&gt;
+  &lt;caption&gt;Monthly Sales Report&lt;/caption&gt;
+  
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Month&lt;/th&gt;
+      &lt;th&gt;Sales&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;January&lt;/td&gt;
+      &lt;td&gt;$10,000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;February&lt;/td&gt;
+      &lt;td&gt;$12,000&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Total&lt;/th&gt;
+      &lt;td&gt;$22,000&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+        </section>
+
+        <section>
+          <h2>Table Attributes</h2>
+          <h3>Cell Spanning</h3>
+          <ul>
+            <li><code>colspan</code> - Span multiple columns</li>
+            <li><code>rowspan</code> - Span multiple rows</li>
+          </ul>
+          
+          <pre><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th colspan="2"&gt;Name&lt;/th&gt;
+    &lt;th&gt;Age&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;First&lt;/td&gt;
+    &lt;td&gt;Last&lt;/td&gt;
+    &lt;td rowspan="2"&gt;25&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td colspan="2"&gt;Contact Info&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+        </section>
+
+        <section>
+          <h2>Accessibility Features</h2>
+          <h3>Scope Attribute</h3>
+          <p>Use <code>scope</code> to associate header cells with their data cells:</p>
+          <pre><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th scope="col"&gt;Name&lt;/th&gt;
+    &lt;th scope="col"&gt;Age&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;th scope="row"&gt;John&lt;/th&gt;
+    &lt;td&gt;25&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+          <h3>Headers and ID Attributes</h3>
+          <p>For complex tables, use <code>headers</code> and <code>id</code> to associate cells:</p>
+          <pre><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th id="name"&gt;Name&lt;/th&gt;
+    &lt;th id="age"&gt;Age&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td headers="name"&gt;John&lt;/td&gt;
+    &lt;td headers="age"&gt;25&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+        </section>
+
+        <section>
+          <h2>Complex Table Example</h2>
+          <pre><code>&lt;table&gt;
+  &lt;caption&gt;Quarterly Sales Report&lt;/caption&gt;
+  
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th scope="col"&gt;Region&lt;/th&gt;
+      &lt;th scope="col"&gt;Q1&lt;/th&gt;
+      &lt;th scope="col"&gt;Q2&lt;/th&gt;
+      &lt;th scope="col"&gt;Q3&lt;/th&gt;
+      &lt;th scope="col"&gt;Q4&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th scope="row"&gt;North&lt;/th&gt;
+      &lt;td&gt;$10,000&lt;/td&gt;
+      &lt;td&gt;$12,000&lt;/td&gt;
+      &lt;td&gt;$15,000&lt;/td&gt;
+      &lt;td&gt;$18,000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th scope="row"&gt;South&lt;/th&gt;
+      &lt;td&gt;$8,000&lt;/td&gt;
+      &lt;td&gt;$9,000&lt;/td&gt;
+      &lt;td&gt;$11,000&lt;/td&gt;
+      &lt;td&gt;$13,000&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;th scope="row"&gt;Total&lt;/th&gt;
+      &lt;td&gt;$18,000&lt;/td&gt;
+      &lt;td&gt;$21,000&lt;/td&gt;
+      &lt;td&gt;$26,000&lt;/td&gt;
+      &lt;td&gt;$31,000&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+        </section>
+
+        <nav class="page-navigation">
+          <a href="index.html">← Back to Index</a>
+          <a href="media.html">Next: Media Elements →</a>
+        </nav>
+      </article>
+    </main>
+    <script src="js/main.js"></script>
+  </body>
+</html>

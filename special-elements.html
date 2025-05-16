@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>HTML Special Elements and Characters</title>
+    <meta name="description" content="Learn about HTML entities, special characters, and specialized HTML elements" />
+    <meta property="og:title" content="HTML Special Elements Guide" />
+    <meta property="og:type" content="article" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <main>
+      <article>
+        <h1>Special Elements and Characters</h1>
+        
+        <section>
+          <h2>HTML Entities</h2>
+          <p>HTML entities are used to display reserved characters and symbols that might otherwise be interpreted as HTML markup.</p>
+          
+          <h3>Common HTML Entities</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Character</th>
+                <th>Entity Name</th>
+                <th>Entity Number</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>&lt;</td>
+                <td>&amp;lt;</td>
+                <td>&amp;#60;</td>
+                <td>Less than</td>
+              </tr>
+              <tr>
+                <td>&gt;</td>
+                <td>&amp;gt;</td>
+                <td>&amp;#62;</td>
+                <td>Greater than</td>
+              </tr>
+              <tr>
+                <td>&amp;</td>
+                <td>&amp;amp;</td>
+                <td>&amp;#38;</td>
+                <td>Ampersand</td>
+              </tr>
+              <tr>
+                <td>&quot;</td>
+                <td>&amp;quot;</td>
+                <td>&amp;#34;</td>
+                <td>Double quote</td>
+              </tr>
+              <tr>
+                <td>'</td>
+                <td>&amp;apos;</td>
+                <td>&amp;#39;</td>
+                <td>Single quote</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Special Characters</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Character</th>
+                <th>Entity Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>©</td>
+                <td>&amp;copy;</td>
+                <td>Copyright</td>
+              </tr>
+              <tr>
+                <td>®</td>
+                <td>&amp;reg;</td>
+                <td>Registered trademark</td>
+              </tr>
+              <tr>
+                <td>™</td>
+                <td>&amp;trade;</td>
+                <td>Trademark</td>
+              </tr>
+              <tr>
+                <td>€</td>
+                <td>&amp;euro;</td>
+                <td>Euro</td>
+              </tr>
+              <tr>
+                <td>£</td>
+                <td>&amp;pound;</td>
+                <td>Pound</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2>Text-Level Semantic Elements</h2>
+          
+          <h3>Emphasis Elements</h3>
+          <pre><code>&lt;!-- Emphasis --&gt;
+&lt;em&gt;This text has emphasis&lt;/em&gt;
+
+&lt;!-- Strong importance --&gt;
+&lt;strong&gt;This text is strongly emphasized&lt;/strong&gt;
+
+&lt;!-- Marked/highlighted text --&gt;
+&lt;mark&gt;This text is highlighted&lt;/mark&gt;</code></pre>
+
+          <h3>Technical and Special Text</h3>
+          <pre><code>&lt;!-- Code --&gt;
+&lt;code&gt;console.log('Hello');&lt;/code&gt;
+
+&lt;!-- Keyboard input --&gt;
+&lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;C&lt;/kbd&gt;
+
+&lt;!-- Sample output --&gt;
+&lt;samp&gt;Error: File not found&lt;/samp&gt;
+
+&lt;!-- Variables --&gt;
+&lt;var&gt;x&lt;/var&gt; = &lt;var&gt;y&lt;/var&gt; + 2</code></pre>
+
+          <h3>Ruby Annotations</h3>
+          <pre><code>&lt;ruby&gt;
+  漢 &lt;rt&gt;かん&lt;/rt&gt;
+  字 &lt;rt&gt;じ&lt;/rt&gt;
+&lt;/ruby&gt;</code></pre>
+        </section>
+
+        <section>
+          <h2>Time and Date</h2>
+          <pre><code>&lt;!-- Date --&gt;
+&lt;time datetime="2025-05-16"&gt;May 16, 2025&lt;/time&gt;
+
+&lt;!-- Time --&gt;
+&lt;time datetime="14:30"&gt;2:30 PM&lt;/time&gt;
+
+&lt;!-- DateTime --&gt;
+&lt;time datetime="2025-05-16T14:30:00+00:00"&gt;
+  May 16, 2025, 2:30 PM UTC
+&lt;/time&gt;</code></pre>
+        </section>
+
+        <section>
+          <h2>Citations and Quotes</h2>
+          <h3>Block Quotes</h3>
+          <pre><code>&lt;blockquote cite="https://example.com/quote"&gt;
+  &lt;p&gt;This is a long block quote that might span multiple paragraphs.&lt;/p&gt;
+  &lt;footer&gt;
+    — &lt;cite&gt;Author Name&lt;/cite&gt;
+  &lt;/footer&gt;
+&lt;/blockquote&gt;</code></pre>
+
+          <h3>Inline Quotes</h3>
+          <pre><code>&lt;p&gt;The instructor said, &lt;q&gt;Always use semantic HTML&lt;/q&gt;&lt;/p&gt;</code></pre>
+        </section>
+
+        <section>
+          <h2>Description Lists</h2>
+          <pre><code>&lt;dl&gt;
+  &lt;dt&gt;HTML&lt;/dt&gt;
+  &lt;dd&gt;HyperText Markup Language&lt;/dd&gt;
+  
+  &lt;dt&gt;CSS&lt;/dt&gt;
+  &lt;dd&gt;Cascading Style Sheets&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+        </section>
+
+        <section>
+          <h2>Text Directionality</h2>
+          <pre><code>&lt;!-- Right-to-left text --&gt;
+&lt;p dir="rtl"&gt;This text flows right to left&lt;/p&gt;
+
+&lt;!-- Bidirectional text --&gt;
+&lt;p&gt;English text &lt;bdi&gt;العربية&lt;/bdi&gt; more English&lt;/p&gt;
+
+&lt;!-- Bidirectional isolation --&gt;
+&lt;bdo dir="rtl"&gt;This text will go right to left&lt;/bdo&gt;</code></pre>
+        </section>
+
+        <nav class="page-navigation">
+          <a href="index.html">← Back to Index</a>
+          <a href="cheatsheet.html">Next: HTML Cheatsheet →</a>
+        </nav>
+      </article>
+    </main>
+    <script src="js/main.js"></script>
+  </body>
+</html>

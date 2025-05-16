@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>HTML Forms and Input Elements</title>
+    <meta name="description" content="Learn about HTML form elements, input types, and form attributes" />
+    <meta property="og:title" content="HTML Forms Guide" />
+    <meta property="og:type" content="article" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <main>
+      <article>
+        <h1>HTML Forms and Input Elements</h1>
+        
+        <section>
+          <h2>Form Basics</h2>
+          <p>Forms are used to collect user input. The <code>&lt;form&gt;</code> element is the container for form controls.</p>
+          
+          <h3>Basic Form Structure</h3>
+          <pre><code>&lt;form method="post" action="/submit-form"&gt;
+  &lt;!-- Form controls go here --&gt;
+&lt;/form&gt;</code></pre>
+
+          <h3>Form Attributes</h3>
+          <ul>
+            <li><code>action</code> - URL where form data is sent</li>
+            <li><code>method</code> - HTTP method (GET or POST)</li>
+            <li><code>enctype</code> - How form data is encoded</li>
+            <li><code>novalidate</code> - Disables browser validation</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Input Types</h2>
+          <div class="form-examples">
+            <h3>Text Inputs</h3>
+            <pre><code>&lt;input type="text" placeholder="Enter your name"&gt;
+&lt;input type="email" placeholder="Enter your email"&gt;
+&lt;input type="password" placeholder="Enter password"&gt;
+&lt;input type="number" min="0" max="100"&gt;
+&lt;input type="tel" placeholder="Phone number"&gt;</code></pre>
+
+            <h3>Selection Inputs</h3>
+            <pre><code>&lt;input type="checkbox" id="agree"&gt;
+&lt;input type="radio" name="choice" value="yes"&gt;
+&lt;input type="radio" name="choice" value="no"&gt;
+&lt;select name="country"&gt;
+  &lt;option value="us"&gt;United States&lt;/option&gt;
+  &lt;option value="uk"&gt;United Kingdom&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+
+            <h3>Date and Time Inputs</h3>
+            <pre><code>&lt;input type="date"&gt;
+&lt;input type="time"&gt;
+&lt;input type="datetime-local"&gt;
+&lt;input type="month"&gt;
+&lt;input type="week"&gt;</code></pre>
+
+            <h3>File and Color Inputs</h3>
+            <pre><code>&lt;input type="file" accept=".jpg,.png"&gt;
+&lt;input type="color"&gt;</code></pre>
+
+            <h3>Button Inputs</h3>
+            <pre><code>&lt;input type="submit" value="Submit"&gt;
+&lt;input type="reset" value="Reset"&gt;
+&lt;input type="button" value="Click Me"&gt;</code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h2>Input Attributes</h2>
+          <ul>
+            <li><code>placeholder</code> - Hint text</li>
+            <li><code>required</code> - Makes field mandatory</li>
+            <li><code>disabled</code> - Disables the input</li>
+            <li><code>readonly</code> - Makes input read-only</li>
+            <li><code>minlength</code>/<code>maxlength</code> - Text length limits</li>
+            <li><code>min</code>/<code>max</code> - Number range limits</li>
+            <li><code>pattern</code> - Regex validation pattern</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Labels and Fieldsets</h2>
+          <h3>Labels</h3>
+          <pre><code>&lt;!-- Explicit labeling --&gt;
+&lt;label for="username"&gt;Username:&lt;/label&gt;
+&lt;input id="username" type="text"&gt;
+
+&lt;!-- Implicit labeling --&gt;
+&lt;label&gt;
+  Password:
+  &lt;input type="password"&gt;
+&lt;/label&gt;</code></pre>
+
+          <h3>Fieldsets</h3>
+          <pre><code>&lt;fieldset&gt;
+  &lt;legend&gt;Contact Information&lt;/legend&gt;
+  &lt;label for="name"&gt;Name:&lt;/label&gt;
+  &lt;input id="name" type="text"&gt;
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input id="email" type="email"&gt;
+&lt;/fieldset&gt;</code></pre>
+        </section>
+
+        <section>
+          <h2>Complete Form Example</h2>
+          <pre><code>&lt;form method="post" action="/submit"&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Personal Information&lt;/legend&gt;
+    
+    &lt;label for="full-name"&gt;Full Name:&lt;/label&gt;
+    &lt;input 
+      id="full-name"
+      name="fullName"
+      type="text"
+      required
+      minlength="2"
+      maxlength="50"
+    &gt;
+
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input
+      id="email"
+      name="email"
+      type="email"
+      required
+      placeholder="you@example.com"
+    &gt;
+
+    &lt;label for="age"&gt;Age:&lt;/label&gt;
+    &lt;input
+      id="age"
+      name="age"
+      type="number"
+      min="18"
+      max="120"
+    &gt;
+  &lt;/fieldset&gt;
+
+  &lt;fieldset&gt;
+    &lt;legend&gt;Preferences&lt;/legend&gt;
+    
+    &lt;label&gt;
+      &lt;input type="checkbox" name="newsletter"&gt;
+      Subscribe to newsletter
+    &lt;/label&gt;
+
+    &lt;p&gt;Preferred Contact Method:&lt;/p&gt;
+    &lt;label&gt;
+      &lt;input type="radio" name="contact" value="email"&gt;
+      Email
+    &lt;/label&gt;
+    &lt;label&gt;
+      &lt;input type="radio" name="contact" value="phone"&gt;
+      Phone
+    &lt;/label&gt;
+  &lt;/fieldset&gt;
+
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+  &lt;button type="reset"&gt;Reset&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+        </section>
+
+        <nav class="page-navigation">
+          <a href="index.html">← Back to Index</a>
+          <a href="tables.html">Next: Tables →</a>
+        </nav>
+      </article>
+    </main>
+    <script src="js/main.js"></script>
+  </body>
+</html>

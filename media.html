@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>HTML Media Elements - Images, Audio, and Video</title>
+    <meta name="description" content="Learn about HTML media elements, optimization techniques, and best practices for multimedia content" />
+    <meta property="og:title" content="HTML Media Elements Guide" />
+    <meta property="og:type" content="article" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <main>
+      <article>
+        <h1>Media Elements and Optimization</h1>
+        
+        <section>
+          <h2>Images</h2>
+          <h3>Basic Image Element</h3>
+          <pre><code>&lt;img src="path/to/image.jpg" alt="Description of image"&gt;</code></pre>
+          
+          <h3>Image Attributes</h3>
+          <ul>
+            <li><code>src</code> - Source URL of the image</li>
+            <li><code>alt</code> - Alternative text description</li>
+            <li><code>width</code> - Width in pixels</li>
+            <li><code>height</code> - Height in pixels</li>
+            <li><code>loading</code> - Loading behavior (eager/lazy)</li>
+          </ul>
+
+          <h3>Responsive Images</h3>
+          <pre><code>&lt;picture&gt;
+  &lt;source media="(min-width: 800px)" srcset="large.jpg"&gt;
+  &lt;source media="(min-width: 400px)" srcset="medium.jpg"&gt;
+  &lt;img src="small.jpg" alt="A responsive image"&gt;
+&lt;/picture&gt;</code></pre>
+        </section>
+
+        <section>
+          <h2>Audio Elements</h2>
+          <h3>Basic Audio Element</h3>
+          <pre><code>&lt;audio src="music.mp3" controls&gt;&lt;/audio&gt;</code></pre>
+
+          <h3>Audio with Multiple Sources</h3>
+          <pre><code>&lt;audio controls&gt;
+  &lt;source src="audio.ogg" type="audio/ogg"&gt;
+  &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+  Your browser does not support the audio element.
+&lt;/audio&gt;</code></pre>
+
+          <h3>Audio Attributes</h3>
+          <ul>
+            <li><code>controls</code> - Show playback controls</li>
+            <li><code>autoplay</code> - Start playing automatically</li>
+            <li><code>loop</code> - Repeat when finished</li>
+            <li><code>muted</code> - Start muted</li>
+            <li><code>preload</code> - Loading behavior (auto/metadata/none)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Video Elements</h2>
+          <h3>Basic Video Element</h3>
+          <pre><code>&lt;video src="video.mp4" controls width="640" height="360"&gt;&lt;/video&gt;</code></pre>
+
+          <h3>Video with Multiple Sources</h3>
+          <pre><code>&lt;video controls width="640" height="360"&gt;
+  &lt;source src="video.webm" type="video/webm"&gt;
+  &lt;source src="video.mp4" type="video/mp4"&gt;
+  Your browser does not support the video element.
+&lt;/video&gt;</code></pre>
+
+          <h3>Video with Poster Image</h3>
+          <pre><code>&lt;video 
+  controls 
+  width="640" 
+  height="360"
+  poster="thumbnail.jpg"&gt;
+  &lt;source src="video.mp4" type="video/mp4"&gt;
+&lt;/video&gt;</code></pre>
+        </section>
+
+        <section>
+          <h2>Media Optimization</h2>
+          <h3>Image Formats</h3>
+          <ul>
+            <li><strong>JPEG/JPG</strong> - Best for photographs</li>
+            <li><strong>PNG</strong> - Best for graphics with transparency</li>
+            <li><strong>WebP</strong> - Modern format with better compression</li>
+            <li><strong>SVG</strong> - Vector graphics that scale perfectly</li>
+            <li><strong>AVIF</strong> - Next-generation image format</li>
+          </ul>
+
+          <h3>Best Practices</h3>
+          <ul>
+            <li>Choose appropriate image formats</li>
+            <li>Optimize file sizes</li>
+            <li>Use responsive images</li>
+            <li>Provide alt text for accessibility</li>
+            <li>Consider lazy loading for better performance</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>SVG Integration</h2>
+          <h3>Inline SVG</h3>
+          <pre><code>&lt;svg width="100" height="100" viewBox="0 0 100 100"&gt;
+  &lt;circle cx="50" cy="50" r="40" stroke="black" fill="red"/&gt;
+&lt;/svg&gt;</code></pre>
+
+          <h3>SVG as Image</h3>
+          <pre><code>&lt;img src="icon.svg" alt="Icon description"&gt;</code></pre>
+
+          <h3>SVG as Background</h3>
+          <pre><code>&lt;div style="background-image: url('pattern.svg')"&gt;&lt;/div&gt;</code></pre>
+        </section>
+
+        <section>
+          <h2>Iframe Elements</h2>
+          <h3>Basic Iframe</h3>
+          <pre><code>&lt;iframe 
+  src="https://example.com" 
+  width="600" 
+  height="400" 
+  title="Embedded content"&gt;
+&lt;/iframe&gt;</code></pre>
+
+          <h3>YouTube Video Embed</h3>
+          <pre><code>&lt;iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/VIDEO_ID"
+  title="YouTube video player"
+  allow="accelerometer; autoplay; clipboard-write; 
+         encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen&gt;
+&lt;/iframe&gt;</code></pre>
+        </section>
+
+        <nav class="page-navigation">
+          <a href="index.html">← Back to Index</a>
+          <a href="accessibility.html">Next: Accessibility →</a>
+        </nav>
+      </article>
+    </main>
+    <script src="js/main.js"></script>
+  </body>
+</html>

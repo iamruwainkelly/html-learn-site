@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation Examples</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .error-message {
+            color: #dc3545;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+        .form-control.error {
+            border-color: #dc3545;
+        }
+        .form-control.success {
+            border-color: #198754;
+        }
+        .error .error-message {
+            display: block;
+        }
+        .success-message {
+            color: #198754;
+            display: none;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <h1>Form Validation Examples</h1>
+            <button id="theme-toggle" aria-label="Toggle dark mode">
+                <span class="theme-toggle-icon">☀️</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="registration-form">
+            <h2>Registration Form</h2>
+            <form id="registrationForm" novalidate>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" class="form-control" required
+                           minlength="3" pattern="^[a-zA-Z0-9_]+$">
+                    <div class="error-message">Username must be at least 3 characters and contain only letters, numbers, and underscores</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-control" required>
+                    <div class="error-message">Please enter a valid email address</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" required
+                           minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                    <div class="error-message">Password must be at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" class="form-control" required>
+                    <div class="error-message">Passwords do not match</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" class="form-control" 
+                           pattern="^\+?[1-9]\d{1,14}$">
+                    <div class="error-message">Please enter a valid phone number</div>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="terms" required>
+                        I agree to the terms and conditions
+                    </label>
+                    <div class="error-message">You must agree to the terms and conditions</div>
+                </div>
+
+                <button type="submit" class="submit-button">Register</button>
+            </form>
+            <div class="success-message">Registration successful!</div>
+        </section>
+
+        <section class="live-validation">
+            <h2>Live Validation Example</h2>
+            <form id="liveValidationForm" novalidate>
+                <div class="form-group">
+                    <label for="creditCard">Credit Card Number</label>
+                    <input type="text" id="creditCard" class="form-control" 
+                           pattern="^[0-9]{16}$" maxlength="16">
+                    <div class="error-message">Please enter a valid 16-digit credit card number</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="postalCode">Postal Code</label>
+                    <input type="text" id="postalCode" class="form-control" 
+                           pattern="^[A-Za-z]\d[A-Za-z] \d[A-Za-z]\d$">
+                    <div class="error-message">Please enter a valid postal code (e.g., A1A 1A1)</div>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Registration form validation
+            const registrationForm = document.getElementById('registrationForm');
+            const successMessage = document.querySelector('.success-message');
+
+            registrationForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                let isValid = true;
+
+                // Reset previous validation states
+                registrationForm.querySelectorAll('.form-group').forEach(group => {
+                    group.classList.remove('error', 'success');
+                });
+
+                // Validate each field
+                registrationForm.querySelectorAll('input').forEach(input => {
+                    if (!validateField(input)) {
+                        isValid = false;
+                    }
+                });
+
+                // Additional password match validation
+                const password = document.getElementById('password');
+                const confirmPassword = document.getElementById('confirmPassword');
+                if (password.value !== confirmPassword.value) {
+                    confirmPassword.parentElement.classList.add('error');
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    successMessage.style.display = 'block';
+                    registrationForm.reset();
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 3000);
+                }
+            });
+
+            // Live validation form
+            const liveValidationForm = document.getElementById('liveValidationForm');
+            liveValidationForm.querySelectorAll('input').forEach(input => {
+                input.addEventListener('input', () => {
+                    validateField(input);
+                });
+            });
+
+            // Generic field validation function
+            function validateField(input) {
+                const formGroup = input.parentElement;
+                let isValid = true;
+
+                // Required field validation
+                if (input.hasAttribute('required') && !input.value) {
+                    isValid = false;
+                }
+
+                // Pattern validation
+                if (input.pattern && input.value) {
+                    const pattern = new RegExp(input.pattern);
+                    if (!pattern.test(input.value)) {
+                        isValid = false;
+                    }
+                }
+
+                // Email validation
+                if (input.type === 'email' && input.value) {
+                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailPattern.test(input.value)) {
+                        isValid = false;
+                    }
+                }
+
+                // Minlength validation
+                if (input.minLength && input.value.length < input.minLength) {
+                    isValid = false;
+                }
+
+                // Update validation state
+                formGroup.classList.remove('error', 'success');
+                formGroup.classList.add(isValid ? 'success' : 'error');
+
+                return isValid;
+            }
+        });
+    </script>
+</body>
+</html>

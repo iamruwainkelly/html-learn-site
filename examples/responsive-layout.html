@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <title>Interactive Responsive Layout Examples</title>
+    <meta name="description" content="Learn about HTML layout techniques through interactive examples" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <style>
+      .layout-demo {
+        margin: 2rem 0;
+        padding: 1rem;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+      }
+
+      .demo-container {
+        margin: 1rem 0;
+        padding: 1rem;
+        background: var(--bg-secondary);
+        border-radius: 4px;
+      }
+
+      .layout-item {
+        padding: 1rem;
+        background: var(--accent-color);
+        color: white;
+        border-radius: 4px;
+        text-align: center;
+        transition: all 0.3s;
+      }
+
+      /* Grid Layout */
+      .grid-demo {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+
+      /* Flexbox Layout */
+      .flex-demo {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .flex-demo .layout-item {
+        flex: 1 1 200px;
+      }
+
+      /* Holy Grail Layout */
+      .holy-grail {
+        display: grid;
+        gap: 1rem;
+        grid-template-areas:
+          "header header header"
+          "nav main aside"
+          "footer footer footer";
+        grid-template-columns: 200px 1fr 200px;
+      }
+
+      @media (max-width: 768px) {
+        .holy-grail {
+          grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "aside"
+            "footer";
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .holy-grail > * {
+        padding: 1rem;
+      }
+
+      .holy-grail header { grid-area: header; background: var(--accent-color); }
+      .holy-grail nav { grid-area: nav; background: #28a745; }
+      .holy-grail main { grid-area: main; background: #fd7e14; }
+      .holy-grail aside { grid-area: aside; background: #6f42c1; }
+      .holy-grail footer { grid-area: footer; background: #dc3545; }
+
+      /* Card Layout */
+      .card-demo {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+
+      .card {
+        background: var(--bg-primary);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+      }
+
+      .card-content {
+        padding: 1rem;
+      }
+
+      /* Masonry Layout */
+      .masonry-demo {
+        columns: 3 250px;
+        gap: 1rem;
+      }
+
+      .masonry-item {
+        break-inside: avoid;
+        margin-bottom: 1rem;
+      }
+
+      .masonry-item img {
+        width: 100%;
+        border-radius: 4px;
+      }
+
+      /* Controls */
+      .layout-controls {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .layout-controls button {
+        padding: 0.5rem 1rem;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        background: var(--bg-primary);
+        cursor: pointer;
+      }
+
+      .layout-controls button:hover {
+        background: var(--bg-secondary);
+      }
+
+      /* Responsive Indicators */
+      .screen-size {
+        position: fixed;
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.5rem;
+        background: var(--bg-primary);
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        font-size: 0.8rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-content">
+        <div class="search-container">
+          <input type="search" id="site-search" placeholder="Search documentation...">
+        </div>
+        <button id="theme-toggle" aria-label="Toggle dark mode">
+          <span class="theme-toggle-icon">🌓</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <h1>Interactive Responsive Layouts</h1>
+      <p>Experiment with different HTML layout techniques and see how they respond to various screen sizes.</p>
+
+      <div class="layout-demo">
+        <h2>Grid Layout</h2>
+        <div class="layout-controls">
+          <button data-action="toggle-gap">Toggle Gap</button>
+          <button data-action="change-columns">Change Columns</button>
+        </div>
+        <div class="demo-container grid-demo" id="grid-demo">
+          <div class="layout-item">Item 1</div>
+          <div class="layout-item">Item 2</div>
+          <div class="layout-item">Item 3</div>
+          <div class="layout-item">Item 4</div>
+        </div>
+      </div>
+
+      <div class="layout-demo">
+        <h2>Flexbox Layout</h2>
+        <div class="layout-controls">
+          <button data-action="toggle-wrap">Toggle Wrap</button>
+          <button data-action="change-direction">Change Direction</button>
+        </div>
+        <div class="demo-container flex-demo" id="flex-demo">
+          <div class="layout-item">Flex 1</div>
+          <div class="layout-item">Flex 2</div>
+          <div class="layout-item">Flex 3</div>
+        </div>
+      </div>
+
+      <div class="layout-demo">
+        <h2>Holy Grail Layout</h2>
+        <p>Resize the window to see how this classic layout adapts to different screen sizes.</p>
+        <div class="demo-container holy-grail">
+          <header>Header</header>
+          <nav>Navigation</nav>
+          <main>Main Content</main>
+          <aside>Sidebar</aside>
+          <footer>Footer</footer>
+        </div>
+      </div>
+
+      <div class="layout-demo">
+        <h2>Card Layout</h2>
+        <div class="demo-container card-demo">
+          <div class="card">
+            <img src="https://picsum.photos/400/300?random=1" alt="Random image 1">
+            <div class="card-content">
+              <h3>Card Title 1</h3>
+              <p>This is a sample card description that demonstrates a common web layout pattern.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://picsum.photos/400/300?random=2" alt="Random image 2">
+            <div class="card-content">
+              <h3>Card Title 2</h3>
+              <p>Cards are versatile components that work well in responsive layouts.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://picsum.photos/400/300?random=3" alt="Random image 3">
+            <div class="card-content">
+              <h3>Card Title 3</h3>
+              <p>They can be used for articles, products, or any grouped content.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="layout-demo">
+        <h2>Masonry Layout</h2>
+        <div class="demo-container masonry-demo">
+          <div class="masonry-item">
+            <img src="https://picsum.photos/400/300?random=4" alt="Random image 4">
+            <p>Item with variable height content to demonstrate masonry layout.</p>
+          </div>
+          <div class="masonry-item">
+            <img src="https://picsum.photos/400/500?random=5" alt="Random image 5">
+            <p>Another item with different content length.</p>
+          </div>
+          <div class="masonry-item">
+            <img src="https://picsum.photos/400/400?random=6" alt="Random image 6">
+            <p>Masonry layouts are great for content of varying heights.</p>
+          </div>
+          <div class="masonry-item">
+            <img src="https://picsum.photos/400/350?random=7" alt="Random image 7">
+            <p>They're commonly used in photo galleries and portfolio sites.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise-header">
+          <h3>Practice Exercise</h3>
+        </div>
+        <div class="exercise-content">
+          <p>Create a responsive product grid with the following requirements:</p>
+          <ul>
+            <li>Grid should display 4 columns on desktop</li>
+            <li>3 columns on tablet (min-width: 768px)</li>
+            <li>2 columns on mobile (min-width: 480px)</li>
+            <li>1 column on small mobile devices</li>
+            <li>Each product should have an image, title, price, and "Add to Cart" button</li>
+          </ul>
+          
+          <details>
+            <summary>View Solution</summary>
+            <pre><code>&lt;style&gt;
+.product-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  text-align: center;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+&lt;/style&gt;
+
+&lt;div class="product-grid"&gt;
+  &lt;div class="product-card"&gt;
+    &lt;img src="product1.jpg" alt="Product 1"&gt;
+    &lt;h3&gt;Product Name&lt;/h3&gt;
+    &lt;p class="price"&gt;$19.99&lt;/p&gt;
+    &lt;button&gt;Add to Cart&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;!-- More product cards... --&gt;
+&lt;/div&gt;</code></pre>
+          </details>
+        </div>
+      </div>
+    </main>
+
+    <div class="screen-size">
+      <span id="screen-width">Width: 1200px</span>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // Grid Layout Controls
+        const gridDemo = document.getElementById('grid-demo');
+        document.querySelector('[data-action="toggle-gap"]').addEventListener('click', () => {
+          gridDemo.style.gap = gridDemo.style.gap === '0px' ? '1rem' : '0px';
+        });
+
+        document.querySelector('[data-action="change-columns"]').addEventListener('click', () => {
+          const currentCols = getComputedStyle(gridDemo).gridTemplateColumns.split(' ').length;
+          gridDemo.style.gridTemplateColumns = `repeat(${currentCols === 2 ? 4 : 2}, 1fr)`;
+        });
+
+        // Flexbox Layout Controls
+        const flexDemo = document.getElementById('flex-demo');
+        document.querySelector('[data-action="toggle-wrap"]').addEventListener('click', () => {
+          flexDemo.style.flexWrap = flexDemo.style.flexWrap === 'nowrap' ? 'wrap' : 'nowrap';
+        });
+
+        document.querySelector('[data-action="change-direction"]').addEventListener('click', () => {
+          flexDemo.style.flexDirection = flexDemo.style.flexDirection === 'column' ? 'row' : 'column';
+        });
+
+        // Screen Size Indicator
+        const screenWidth = document.getElementById('screen-width');
+        function updateScreenSize() {
+          screenWidth.textContent = `Width: ${window.innerWidth}px`;
+        }
+        window.addEventListener('resize', updateScreenSize);
+        updateScreenSize();
+      });
+    </script>
+  </body>
+</html>

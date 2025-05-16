@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>HTML Best Practices and Coding Standards</title>
+    <meta name="description" content="Learn about HTML best practices, coding standards, and guidelines for writing maintainable and accessible HTML" />
+    <meta property="og:title" content="HTML Best Practices Guide" />
+    <meta property="og:type" content="article" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <main>
+      <article>
+        <h1>HTML Best Practices</h1>
+        
+        <section>
+          <h2>Document Structure</h2>
+          <h3>Always Include Essential Meta Tags</h3>
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+    &lt;meta name="description" content="Page description"&gt;
+    &lt;title&gt;Page Title&lt;/title&gt;
+  &lt;/head&gt;
+&lt;/html&gt;</code></pre>
+
+          <h3>Use Semantic Elements</h3>
+          <div class="example">
+            <h4>✅ Do This:</h4>
+            <pre><code>&lt;header&gt;
+  &lt;nav&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;</code></pre>
+
+            <h4>❌ Avoid This:</h4>
+            <pre><code>&lt;div class="header"&gt;
+  &lt;div class="nav"&gt;
+    &lt;div&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h2>Coding Style</h2>
+          <ul>
+            <li>Use lowercase for element names and attributes</li>
+            <li>Use double quotes for attribute values</li>
+            <li>Indent nested elements consistently</li>
+            <li>Keep lines under 80 characters when possible</li>
+            <li>Use meaningful class and ID names</li>
+          </ul>
+
+          <h3>Examples</h3>
+          <div class="example">
+            <h4>✅ Good Style:</h4>
+            <pre><code>&lt;article class="blog-post"&gt;
+  &lt;h1 class="post-title"&gt;Title&lt;/h1&gt;
+  &lt;p class="post-content"&gt;Content&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+
+            <h4>❌ Poor Style:</h4>
+            <pre><code>&lt;ARTICLE CLASS="p1"&gt;
+&lt;H1 CLASS='t1'&gt;Title&lt;/H1&gt;
+&lt;P CLASS='c1'&gt;Content&lt;/P&gt;
+&lt;/ARTICLE&gt;</code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h2>Accessibility</h2>
+          <h3>Proper Heading Structure</h3>
+          <div class="example">
+            <h4>✅ Do This:</h4>
+            <pre><code>&lt;h1&gt;Main Title&lt;/h1&gt;
+&lt;section&gt;
+  &lt;h2&gt;Section Title&lt;/h2&gt;
+  &lt;h3&gt;Subsection&lt;/h3&gt;
+&lt;/section&gt;</code></pre>
+
+            <h4>❌ Avoid This:</h4>
+            <pre><code>&lt;h3&gt;Main Title&lt;/h3&gt;
+&lt;section&gt;
+  &lt;h1&gt;Section Title&lt;/h1&gt;
+  &lt;h4&gt;Subsection&lt;/h4&gt;
+&lt;/section&gt;</code></pre>
+          </div>
+
+          <h3>Form Labels and ARIA</h3>
+          <div class="example">
+            <h4>✅ Do This:</h4>
+            <pre><code>&lt;label for="name"&gt;Name:&lt;/label&gt;
+&lt;input 
+  id="name"
+  type="text"
+  aria-required="true"
+  aria-invalid="false"
+&gt;</code></pre>
+
+            <h4>❌ Avoid This:</h4>
+            <pre><code>&lt;input type="text" placeholder="Enter name"&gt;</code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h2>Performance</h2>
+          <h3>Image Optimization</h3>
+          <ul>
+            <li>Use appropriate image formats (WebP, AVIF for modern browsers)</li>
+            <li>Provide responsive images with srcset</li>
+            <li>Lazy load images below the fold</li>
+            <li>Include width and height attributes</li>
+          </ul>
+
+          <pre><code>&lt;img
+  src="small.jpg"
+  srcset="small.jpg 300w, medium.jpg 600w, large.jpg 900w"
+  sizes="(max-width: 600px) 300px, (max-width: 900px) 600px, 900px"
+  loading="lazy"
+  width="800"
+  height="600"
+  alt="Description"
+&gt;</code></pre>
+
+          <h3>Script Loading</h3>
+          <pre><code>&lt;!-- Defer non-critical scripts --&gt;
+&lt;script src="main.js" defer&gt;&lt;/script&gt;
+
+&lt;!-- Async for independent scripts --&gt;
+&lt;script src="analytics.js" async&gt;&lt;/script&gt;</code></pre>
+        </section>
+
+        <section>
+          <h2>SEO Best Practices</h2>
+          <ul>
+            <li>Use descriptive title tags</li>
+            <li>Include meta descriptions</li>
+            <li>Structure content with semantic headings</li>
+            <li>Use descriptive link text</li>
+            <li>Implement proper Open Graph tags</li>
+          </ul>
+
+          <pre><code>&lt;head&gt;
+  &lt;title&gt;Clear, Descriptive Page Title | Site Name&lt;/title&gt;
+  &lt;meta name="description" content="Clear, compelling description"&gt;
+  &lt;meta property="og:title" content="Page Title"&gt;
+  &lt;meta property="og:description" content="Page description"&gt;
+  &lt;meta property="og:image" content="share-image.jpg"&gt;
+&lt;/head&gt;</code></pre>
+        </section>
+
+        <section>
+          <h2>Security Considerations</h2>
+          <ul>
+            <li>Use HTTPS for all resources</li>
+            <li>Add appropriate security headers</li>
+            <li>Sanitize user input</li>
+            <li>Use Content Security Policy (CSP)</li>
+            <li>Implement cross-origin attributes properly</li>
+          </ul>
+
+          <pre><code>&lt;!-- External resources --&gt;
+&lt;img crossorigin="anonymous" src="https://example.com/image.jpg"&gt;
+
+&lt;!-- Forms --&gt;
+&lt;form method="post" action="/submit"&gt;
+  &lt;input type="text" pattern="[a-zA-Z0-9]+" required&gt;
+&lt;/form&gt;</code></pre>
+        </section>
+
+        <section>
+          <h2>Common Mistakes to Avoid</h2>
+          <ul>
+            <li>Using tables for layout</li>
+            <li>Overusing divs instead of semantic elements</li>
+            <li>Missing alt attributes on images</li>
+            <li>Improper heading hierarchy</li>
+            <li>Relying on color alone for meaning</li>
+            <li>Using inline styles</li>
+            <li>Omitting required attributes</li>
+          </ul>
+        </section>
+
+        <nav class="page-navigation">
+          <a href="index.html">← Back to Index</a>
+        </nav>
+      </article>
+    </main>
+    <script src="js/main.js"></script>
+  </body>
+</html>

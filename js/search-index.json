@@ -1,0 +1,29 @@
+{
+  "pages": [
+    {
+      "title": "HTML Basics",
+      "url": "/html-basics.html",
+      "content": "Learn the fundamentals of HTML including elements, attributes, and document structure"
+    },
+    {
+      "title": "Semantic HTML",
+      "url": "/semantic-html.html",
+      "content": "Understanding semantic HTML elements and their proper usage"
+    },
+    {
+      "title": "Forms",
+      "url": "/forms.html",
+      "content": "HTML forms, input types, validation, and form styling"
+    },
+    {
+      "title": "Media Elements",
+      "url": "/media.html",
+      "content": "Working with images, audio, video, and other media in HTML"
+    },
+    {
+      "title": "Accessibility",
+      "url": "/accessibility.html",
+      "content": "WCAG guidelines, ARIA attributes, and web accessibility best practices"
+    }
+  ]
+}

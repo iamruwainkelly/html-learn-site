@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>HTML Basics - Structure, Elements, and Attributes</title>
+    <meta name="description" content="Learn about HTML structure, elements, and attributes - the building blocks of web pages" />
+    <meta property="og:title" content="HTML Basics Tutorial" />
+    <meta property="og:type" content="article" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <main>
+      <article>
+        <h1>HTML Basics</h1>
+        
+        <section>
+          <h2>What is HTML?</h2>
+          <p>HTML (Hypertext Markup Language) is the foundation of web structure, defining the elements of a webpage. It uses tags to mark up content and give it meaning and structure.</p>
+        </section>
+
+        <section>
+          <h2>HTML Document Structure</h2>
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8" /&gt;
+    &lt;title&gt;Page Title&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- Content goes here --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </section>
+
+        <section>
+          <h2>HTML Elements</h2>
+          <p>Most HTML elements consist of an opening tag and a closing tag:</p>
+          <pre><code>&lt;elementName&gt;Content goes here&lt;/elementName&gt;</code></pre>
+          
+          <h3>Common Elements</h3>
+          <ul>
+            <li><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> - Headings</li>
+            <li><code>&lt;p&gt;</code> - Paragraphs</li>
+            <li><code>&lt;div&gt;</code> - Generic container</li>
+            <li><code>&lt;span&gt;</code> - Inline container</li>
+            <li><code>&lt;a&gt;</code> - Links</li>
+            <li><code>&lt;img&gt;</code> - Images</li>
+          </ul>
+
+          <h3>Void Elements</h3>
+          <p>Some elements don't have closing tags:</p>
+          <pre><code>&lt;img src="image.jpg" alt="Description"&gt;
+&lt;br&gt;
+&lt;meta charset="utf-8"&gt;</code></pre>
+        </section>
+
+        <section>
+          <h2>HTML Attributes</h2>
+          <p>Attributes provide additional information or modify element behavior:</p>
+          <pre><code>&lt;element attribute="value"&gt;&lt;/element&gt;</code></pre>
+          
+          <h3>Common Attributes</h3>
+          <ul>
+            <li><code>id</code> - Unique identifier</li>
+            <li><code>class</code> - Grouping elements</li>
+            <li><code>src</code> - Source for media</li>
+            <li><code>href</code> - Hyperlink reference</li>
+            <li><code>alt</code> - Alternative text</li>
+          </ul>
+
+          <h3>Boolean Attributes</h3>
+          <p>Some attributes don't need values:</p>
+          <pre><code>&lt;input type="text" disabled&gt;
+&lt;button type="submit" readonly&gt;</code></pre>
+        </section>
+
+        <section>
+          <h2>Comments</h2>
+          <p>Comments help document your code and are ignored by browsers:</p>
+          <pre><code>&lt;!-- This is an HTML comment --&gt;</code></pre>
+        </section>
+
+        <section>
+          <h2>Practice Exercise</h2>
+          <p>Try creating a simple HTML document with these elements:</p>
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;title&gt;My First Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Welcome!&lt;/h1&gt;
+    &lt;p&gt;This is my first HTML page.&lt;/p&gt;
+    &lt;img src="profile.jpg" alt="My profile picture"&gt;
+    &lt;a href="https://example.com"&gt;Visit my website&lt;/a&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </section>
+
+        <nav class="page-navigation">
+          <a href="index.html">← Back to Index</a>
+          <a href="semantic-html.html">Next: Semantic HTML →</a>
+        </nav>
+      </article>
+    </main>
+    <script src="js/main.js"></script>
+  </body>
+</html>

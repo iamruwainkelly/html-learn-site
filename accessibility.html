@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>HTML Accessibility - WCAG Guidelines and ARIA</title>
+    <meta name="description" content="Learn about web accessibility guidelines, ARIA attributes, and best practices for creating accessible web content" />
+    <meta property="og:title" content="HTML Accessibility Guide" />
+    <meta property="og:type" content="article" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <main>
+      <article>
+        <h1>Web Accessibility</h1>
+        
+        <section>
+          <h2>WCAG Guidelines (POUR)</h2>
+          <ul>
+            <li>
+              <strong>Perceivable</strong>
+              <p>Information must be presentable to users in ways they can perceive.</p>
+              <ul>
+                <li>Provide text alternatives for non-text content</li>
+                <li>Provide captions and alternatives for multimedia</li>
+                <li>Create content that can be presented in different ways</li>
+                <li>Make it easier for users to see and hear content</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Operable</strong>
+              <p>User interface components must be operable.</p>
+              <ul>
+                <li>Make all functionality available from keyboard</li>
+                <li>Give users enough time to read and use content</li>
+                <li>Do not use content that causes seizures</li>
+                <li>Help users navigate and find content</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Understandable</strong>
+              <p>Information and operation must be understandable.</p>
+              <ul>
+                <li>Make text content readable and understandable</li>
+                <li>Make content appear and operate in predictable ways</li>
+                <li>Help users avoid and correct mistakes</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Robust</strong>
+              <p>Content must be robust enough to be interpreted by various user agents.</p>
+              <ul>
+                <li>Maximize compatibility with current and future tools</li>
+                <li>Use proper HTML semantics</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>WAI-ARIA Roles and Attributes</h2>
+          
+          <h3>ARIA Roles</h3>
+          <pre><code>&lt;div role="alert"&gt;Important notification&lt;/div&gt;
+&lt;div role="dialog" aria-labelledby="dialog-title"&gt;
+  &lt;h2 id="dialog-title"&gt;Dialog Title&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div role="tablist"&gt;
+  &lt;button role="tab" aria-selected="true"&gt;Tab 1&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+          <h3>ARIA States and Properties</h3>
+          <pre><code>&lt;button aria-expanded="false"&gt;Show More&lt;/button&gt;
+&lt;div aria-hidden="true"&gt;Hidden content&lt;/div&gt;
+&lt;input aria-invalid="true" aria-describedby="error-msg"&gt;
+&lt;span id="error-msg"&gt;Please enter a valid email&lt;/span&gt;</code></pre>
+
+          <h3>Live Regions</h3>
+          <pre><code>&lt;div aria-live="polite"&gt;
+  Content updated dynamically
+&lt;/div&gt;
+&lt;div aria-live="assertive"&gt;
+  Important immediate updates
+&lt;/div&gt;</code></pre>
+        </section>
+
+        <section>
+          <h2>Assistive Technologies</h2>
+          <ul>
+            <li>
+              <strong>Screen Readers</strong>
+              <p>Software that reads content aloud for visually impaired users</p>
+            </li>
+            <li>
+              <strong>Screen Magnifiers</strong>
+              <p>Tools that enlarge screen content for users with low vision</p>
+            </li>
+            <li>
+              <strong>Alternative Input Devices</strong>
+              <p>Including voice recognition and adaptive keyboards</p>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Keyboard Accessibility</h2>
+          <h3>Focus Management</h3>
+          <pre><code>&lt;!-- Use tabindex appropriately --&gt;
+&lt;div tabindex="0"&gt;Focusable element&lt;/div&gt;
+&lt;div tabindex="-1"&gt;Programmatically focusable&lt;/div&gt;
+
+&lt;!-- Visible focus indicators --&gt;
+&lt;style&gt;
+:focus {
+  outline: 3px solid #4CAF50;
+}
+&lt;/style&gt;</code></pre>
+
+          <h3>Skip Links</h3>
+          <pre><code>&lt;a href="#main-content" class="skip-link"&gt;
+  Skip to main content
+&lt;/a&gt;
+
+&lt;main id="main-content" tabindex="-1"&gt;
+  Main content here
+&lt;/main&gt;</code></pre>
+        </section>
+
+        <section>
+          <h2>Best Practices</h2>
+          <h3>Semantic HTML</h3>
+          <pre><code>&lt;!-- Use semantic elements --&gt;
+&lt;nav&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Navigation item&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;!-- Instead of --&gt;
+&lt;div class="nav"&gt;
+  &lt;div&gt;&lt;a href="#"&gt;Navigation item&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+          <h3>Form Accessibility</h3>
+          <pre><code>&lt;form&gt;
+  &lt;label for="name"&gt;Name:&lt;/label&gt;
+  &lt;input 
+    id="name"
+    type="text"
+    aria-required="true"
+    aria-invalid="false"
+  &gt;
+  
+  &lt;fieldset&gt;
+    &lt;legend&gt;Preferences&lt;/legend&gt;
+    &lt;input type="checkbox" id="email-optin"&gt;
+    &lt;label for="email-optin"&gt;
+      Receive email updates
+    &lt;/label&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+
+          <h3>Image Accessibility</h3>
+          <pre><code>&lt;!-- Informative image --&gt;
+&lt;img 
+  src="chart.png" 
+  alt="Sales chart showing 50% growth in Q2 2025"
+&gt;
+
+&lt;!-- Decorative image --&gt;
+&lt;img src="decoration.png" alt="" role="presentation"&gt;
+
+&lt;!-- Complex image --&gt;
+&lt;figure&gt;
+  &lt;img src="diagram.png" alt="Network diagram"&gt;
+  &lt;figcaption&gt;
+    Detailed description of the network architecture
+  &lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+        </section>
+
+        <section>
+          <h2>Testing Tools</h2>
+          <ul>
+            <li>WAVE (Web Accessibility Evaluation Tool)</li>
+            <li>aXe DevTools</li>
+            <li>Lighthouse Accessibility Audit</li>
+            <li>Color Contrast Analyzers</li>
+            <li>Screen Reader Testing</li>
+          </ul>
+        </section>
+
+        <nav class="page-navigation">
+          <a href="index.html">← Back to Index</a>
+          <a href="special-elements.html">Next: Special Elements →</a>
+        </nav>
+      </article>
+    </main>
+    <script src="js/main.js"></script>
+  </body>
+</html>
