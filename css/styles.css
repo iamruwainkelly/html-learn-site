@@ -424,6 +424,49 @@ summary:hover {
   background: var(--border-color);
 }
 
+/* Computer Basics Page Components */
+.component-grid,
+.tools-grid,
+.format-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.component-card,
+.tool-card,
+.format-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.security-tips,
+.search-tips {
+  background: var(--bg-secondary);
+  border-left: 4px solid var(--accent-color);
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.search-tips code {
+  background: var(--bg-primary);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+@media (max-width: 768px) {
+  .component-grid,
+  .tools-grid,
+  .format-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   body {
