@@ -1,2 +1,30 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Temporary files
 temp-repo/
-temp-repo/
+*.log
+*.tmp
+
+# Dependencies
+node_modules/
+
+# Environment files
+*.env
+.env.local
+.env.*.local
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# Build output
+dist/
+build/
+out/
