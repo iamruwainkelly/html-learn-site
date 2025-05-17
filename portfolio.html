@@ -21,6 +21,10 @@
       }
 
       /* Code Toggle Styles */
+      .code-toggle {
+        margin-bottom: 2rem;
+      }
+
       .code-toggle button {
         background: #0d6efd;
         color: white;
@@ -47,11 +51,12 @@
 
       /* Updated Hotel Form Styles */
       .hotel-form {
-        max-width: 600px;
+        max-width: 500px;
         margin: 0 auto;
         background: white;
         padding: 20px;
         border-radius: 4px;
+        border: 1px solid #dee2e6;
       }
 
       .hotel-form h1 {
@@ -64,8 +69,8 @@
       }
 
       .hotel-form fieldset {
-        margin: 10px 0;
-        padding: 10px;
+        margin: 8px 0;
+        padding: 8px;
         border: 1px solid #dee2e6;
         border-radius: 4px;
       }
@@ -107,15 +112,15 @@
       .hotel-form .checkbox-group {
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 6px;
         margin: 5px 0;
       }
 
       .hotel-form .radio-group label,
       .hotel-form .checkbox-group label {
-        display: flex;
+        display: inline-flex;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
         margin: 0;
         cursor: pointer;
       }
@@ -123,11 +128,12 @@
       .hotel-form input[type="radio"],
       .hotel-form input[type="checkbox"] {
         margin: 0;
+        width: auto;
       }
 
       .hotel-form textarea {
         width: 100%;
-        height: 80px;
+        height: 60px;
         padding: 8px;
         border: 1px solid #dee2e6;
         border-radius: 4px;
@@ -165,6 +171,16 @@
 
       <section class="project-showcase">
         <article class="project-card">
+          <h2>Hotel Feedback Form</h2>
+          <p>An interactive form for collecting hotel guest feedback.</p>
+
+          <div class="code-toggle">
+            <button onclick="toggleCode('hotel-form')">View Source Code</button>
+          </div>
+          <div id="hotel-form-code" class="code-view">
+            <pre><code></code></pre>
+          </div>
+
           <form class="hotel-form" method="POST" action="https://hotel-feedback.freecodecamp.org">
             <h1>Hotel Feedback Form</h1>
             <p>Thank you for staying with us. Please provide feedback on your recent stay.</p>
@@ -260,13 +276,6 @@
 
             <button type="submit">Submit</button>
           </form>
-
-          <div class="code-toggle">
-            <button onclick="toggleCode('hotel-form')">View Source Code</button>
-          </div>
-          <div id="hotel-form-code" class="code-view">
-            <pre><code></code></pre>
-          </div>
         </article>
       </section>
 
