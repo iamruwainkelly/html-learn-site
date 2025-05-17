@@ -510,6 +510,83 @@ summary:hover {
   }
 }
 
+/* Semantic HTML Review Page */
+.key-concepts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.concept-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.comparison-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.good-practice, .bad-practice {
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.good-practice {
+  background: rgba(40, 167, 69, 0.1);
+}
+
+.bad-practice {
+  background: rgba(220, 53, 69, 0.1);
+}
+
+.example-block {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.live-example {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+.best-practices-list {
+  background: var(--bg-secondary);
+  border-left: 4px solid var(--accent-color);
+  padding: 1.5rem 2rem;
+  border-radius: 0 8px 8px 0;
+}
+
+.best-practices-list li {
+  margin-bottom: 0.75rem;
+}
+
+.best-practices-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .comparison-table {
+    grid-template-columns: 1fr;
+  }
+  
+  .key-concepts,
+  .elements-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   body {

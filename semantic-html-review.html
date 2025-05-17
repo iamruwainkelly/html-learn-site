@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semantic HTML Review - Elements and Best Practices</title>
+    <meta name="description" content="Comprehensive guide to semantic HTML elements, their proper usage, and examples" />
+    <meta property="og:title" content="Semantic HTML Review" />
+    <meta property="og:type" content="article" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <main>
+      <article>
+        <h1>Semantic HTML Review</h1>
+        
+        <section id="importance">
+          <h2>Importance of Semantic HTML</h2>
+          <div class="key-concepts">
+            <div class="concept-card">
+              <h3>Structural Hierarchy</h3>
+              <p>Proper heading hierarchy (h1-h6) maintains content structure and improves accessibility:</p>
+              <div class="example-block">
+                <h4>Correct Usage:</h4>
+                <pre><code>&lt;h1&gt;Main Title&lt;/h1&gt;
+  &lt;h2&gt;Subsection&lt;/h2&gt;
+    &lt;h3&gt;Sub-subsection&lt;/h3&gt;</code></pre>
+              </div>
+            </div>
+
+            <div class="concept-card">
+              <h3>Semantic vs Presentational</h3>
+              <div class="comparison-table">
+                <div class="good-practice">
+                  <h4>✅ Semantic Elements</h4>
+                  <ul>
+                    <li>&lt;header&gt;</li>
+                    <li>&lt;nav&gt;</li>
+                    <li>&lt;figure&gt;</li>
+                  </ul>
+                </div>
+                <div class="bad-practice">
+                  <h4>❌ Presentational Elements (Deprecated)</h4>
+                  <ul>
+                    <li>&lt;center&gt;</li>
+                    <li>&lt;big&gt;</li>
+                    <li>&lt;font&gt;</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="structural-elements">
+          <h2>Structural Elements</h2>
+          <div class="elements-grid">
+            <div class="element-card">
+              <h3>&lt;header&gt;</h3>
+              <p>Defines the header section of a document or section</p>
+              <div class="example-block">
+                <pre><code>&lt;header&gt;
+  &lt;h1&gt;Site Title&lt;/h1&gt;
+  &lt;nav&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;</code></pre>
+              </div>
+            </div>
+
+            <div class="element-card">
+              <h3>&lt;main&gt;</h3>
+              <p>Contains the main content of the document</p>
+              <div class="example-block">
+                <pre><code>&lt;main&gt;
+  &lt;article&gt;
+    &lt;h2&gt;Article Title&lt;/h2&gt;
+    &lt;p&gt;Main content here...&lt;/p&gt;
+  &lt;/article&gt;
+&lt;/main&gt;</code></pre>
+              </div>
+            </div>
+
+            <div class="element-card">
+              <h3>&lt;nav&gt;</h3>
+              <p>Represents navigation links</p>
+              <div class="example-block">
+                <pre><code>&lt;nav&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+              </div>
+            </div>
+
+            <div class="element-card">
+              <h3>&lt;figure&gt;</h3>
+              <p>Contains illustrations, diagrams, photos, or code listings</p>
+              <div class="example-block">
+                <pre><code>&lt;figure&gt;
+  &lt;img src="diagram.jpg" alt="System diagram"&gt;
+  &lt;figcaption&gt;Figure 1: System Architecture&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="text-elements">
+          <h2>Text-Level Semantic Elements</h2>
+          
+          <div class="elements-grid">
+            <div class="element-card">
+              <h3>&lt;em&gt; - Emphasis</h3>
+              <p>Marks text with stress emphasis</p>
+              <div class="example-block">
+                <pre><code>Never give up on &lt;em&gt;your&lt;/em&gt; dreams.</code></pre>
+                <div class="live-example">
+                  Never give up on <em>your</em> dreams.
+                </div>
+              </div>
+            </div>
+
+            <div class="element-card">
+              <h3>&lt;i&gt; - Idiomatic Text</h3>
+              <p>Used for text in a different voice or mood</p>
+              <div class="example-block">
+                <pre><code>There is a certain &lt;i lang="fr"&gt;je ne sais quoi&lt;/i&gt; in the air.</code></pre>
+                <div class="live-example">
+                  There is a certain <i lang="fr">je ne sais quoi</i> in the air.
+                </div>
+              </div>
+            </div>
+
+            <div class="element-card">
+              <h3>&lt;strong&gt; - Strong Importance</h3>
+              <p>Marks text with strong importance</p>
+              <div class="example-block">
+                <pre><code>&lt;strong&gt;Warning:&lt;/strong&gt; This product may cause allergic reactions.</code></pre>
+                <div class="live-example">
+                  <strong>Warning:</strong> This product may cause allergic reactions.
+                </div>
+              </div>
+            </div>
+
+            <div class="element-card">
+              <h3>&lt;b&gt; - Bring Attention To</h3>
+              <p>Highlights text without conveying importance</p>
+              <div class="example-block">
+                <pre><code>The &lt;b&gt;SuperSound 3000&lt;/b&gt; performed well in tests.</code></pre>
+                <div class="live-example">
+                  The <b>SuperSound 3000</b> performed well in tests.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="description-lists">
+          <h2>Description Lists</h2>
+          <div class="example-block">
+            <pre><code>&lt;dl&gt;
+  &lt;dt&gt;HTML&lt;/dt&gt;
+  &lt;dd&gt;HyperText Markup Language&lt;/dd&gt;
+  &lt;dt&gt;CSS&lt;/dt&gt;
+  &lt;dd&gt;Cascading Style Sheets&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+            <div class="live-example">
+              <dl>
+                <dt>HTML</dt>
+                <dd>HyperText Markup Language</dd>
+                <dt>CSS</dt>
+                <dd>Cascading Style Sheets</dd>
+              </dl>
+            </div>
+          </div>
+        </section>
+
+        <section id="quotations">
+          <h2>Quotations and Citations</h2>
+          
+          <div class="elements-grid">
+            <div class="element-card">
+              <h3>&lt;blockquote&gt;</h3>
+              <p>Used for longer quotations</p>
+              <div class="example-block">
+                <pre><code>&lt;blockquote cite="https://example.com"&gt;
+  &lt;p&gt;The future depends on what you do today.&lt;/p&gt;
+  &lt;footer&gt;
+    - &lt;cite&gt;Mahatma Gandhi&lt;/cite&gt;
+  &lt;/footer&gt;
+&lt;/blockquote&gt;</code></pre>
+              </div>
+            </div>
+
+            <div class="element-card">
+              <h3>&lt;q&gt; - Inline Quotation</h3>
+              <p>Used for short inline quotes</p>
+              <div class="example-block">
+                <pre><code>As the author said, &lt;q cite="https://example.com"&gt;momentum is everything&lt;/q&gt;.</code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="technical-elements">
+          <h2>Technical and Special Elements</h2>
+          
+          <div class="elements-grid">
+            <div class="element-card">
+              <h3>&lt;code&gt; and &lt;pre&gt;</h3>
+              <p>Used for code snippets and preformatted text</p>
+              <div class="example-block">
+                <pre><code>&lt;pre&gt;
+  &lt;code&gt;
+    body {
+      color: red;
+    }
+  &lt;/code&gt;
+&lt;/pre&gt;</code></pre>
+              </div>
+            </div>
+
+            <div class="element-card">
+              <h3>&lt;time&gt;</h3>
+              <p>Represents dates and times</p>
+              <div class="example-block">
+                <pre><code>&lt;time datetime="2025-05-17T20:00:00"&gt;May 17, 2025 at 8:00 PM&lt;/time&gt;</code></pre>
+              </div>
+            </div>
+
+            <div class="element-card">
+              <h3>&lt;abbr&gt;</h3>
+              <p>Represents abbreviations</p>
+              <div class="example-block">
+                <pre><code>&lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt;</code></pre>
+                <div class="live-example">
+                  <abbr title="HyperText Markup Language">HTML</abbr>
+                </div>
+              </div>
+            </div>
+
+            <div class="element-card">
+              <h3>Sub/Superscript</h3>
+              <p>Used for mathematical notation and chemical formulas</p>
+              <div class="example-block">
+                <pre><code>H&lt;sub&gt;2&lt;/sub&gt;O
+x&lt;sup&gt;2&lt;/sup&gt;</code></pre>
+                <div class="live-example">
+                  H<sub>2</sub>O
+                  x<sup>2</sup>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="best-practices">
+          <h2>Best Practices</h2>
+          <ul class="best-practices-list">
+            <li>Use semantic elements over generic &lt;div&gt; elements when possible</li>
+            <li>Maintain proper heading hierarchy (h1-h6)</li>
+            <li>Use appropriate elements for their intended purpose</li>
+            <li>Include proper language attributes when needed</li>
+            <li>Provide context with title attributes where appropriate</li>
+          </ul>
+        </section>
+
+        <nav class="page-navigation">
+          <a href="index.html">← Back to Index</a>
+          <a href="accessibility.html">Next: Accessibility →</a>
+        </nav>
+      </article>
+    </main>
+    <script src="js/main.js"></script>
+  </body>
+</html>
