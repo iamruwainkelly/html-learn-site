@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Interactive Calculus Final Exams Table</title>
+    <meta charset="UTF-8" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .controls input {
+            flex: 1;
+            padding: 8px;
+            margin: 0;
+        }
+
+        .controls button {
+            padding: 6px 16px;  /* Reduced padding */
+            margin: 5px;
+            background: linear-gradient(to right, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            border-radius: 4px;  /* Slightly reduced border radius */
+            cursor: pointer;
+            font-weight: 400;  /* Slightly reduced font weight */
+            font-size: 13px;  /* Reduced font size */
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);  /* Smaller shadow */
+        }
+
+        .controls button:hover {
+            background: linear-gradient(to right, #45a049, #409444);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .controls button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .edit-mode td input {
+            width: 90%;
+        }
+
+        .actions button {
+            padding: 6px 12px;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s ease;
+            margin: 0 2px;
+        }
+
+        .actions button.edit {
+            background: linear-gradient(to right, #2196F3, #1976D2);
+        }
+
+        .actions button.delete {
+            background: linear-gradient(to right, #f44336, #d32f2f);
+        }
+
+        .actions button:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .actions button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <h1>Interactive Calculus Final Exam Grades</h1>
+    
+    <div class="controls">
+        <input type="text" id="studentNumber" placeholder="Student Number">
+        <input type="text" id="lastName" placeholder="Last Name">
+        <input type="text" id="firstName" placeholder="First Name">
+        <input type="date" id="dateOfBirth" placeholder="Date of Birth">
+        <input type="number" id="grade" placeholder="Grade">
+        <button onclick="addStudent()">Add Student</button>
+    </div>
+
+    <table id="gradesTable">
+        <thead>     
+            <tr>
+                <th>Student Number</th>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Date of Birth</th>
+                <th>Grade</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">Average Grade</td>
+                <td id="averageGrade">0</td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <script>
+        let students = [
+            { studentNumber: 'S001', lastName: 'Davis', firstName: 'Alex', dateOfBirth: '2000-01-15', grade: 54 },
+            { studentNumber: 'S002', lastName: 'Doe', firstName: 'Samantha', dateOfBirth: '1999-05-22', grade: 92 },
+            { studentNumber: 'S003', lastName: 'Rodriguez', firstName: 'Marcus', dateOfBirth: '2001-03-10', grade: 88 },
+            { studentNumber: 'S004', lastName: 'Thompson', firstName: 'Jane', dateOfBirth: '2000-07-30', grade: 77 },
+            { studentNumber: 'S005', lastName: 'Williams', firstName: 'Natalie', dateOfBirth: '1998-11-12', grade: 83 }
+        ];
+
+        function renderTable() {
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = '';
+            
+            students.forEach((student, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${student.studentNumber}</td>
+                    <td>${student.lastName}</td>
+                    <td>${student.firstName}</td>
+                    <td>${student.dateOfBirth}</td>
+                    <td>${student.grade}</td>
+                    <td class="actions">
+                        <button class="edit" onclick="editStudent(${index})">Edit</button>
+                        <button class="delete" onclick="deleteStudent(${index})">Delete</button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+            
+            updateAverage();
+        }
+
+        function addStudent() {
+            const studentNumber = document.getElementById('studentNumber').value;
+            const lastName = document.getElementById('lastName').value;
+            const firstName = document.getElementById('firstName').value;
+            const dateOfBirth = document.getElementById('dateOfBirth').value;
+            const grade = parseInt(document.getElementById('grade').value);
+            
+            if (studentNumber && lastName && firstName && dateOfBirth && !isNaN(grade)) {
+                students.push({ studentNumber, lastName, firstName, dateOfBirth, grade });
+                renderTable();
+                
+                // Clear inputs
+                document.getElementById('studentNumber').value = '';
+                document.getElementById('lastName').value = '';
+                document.getElementById('firstName').value = '';
+                document.getElementById('dateOfBirth').value = '';
+                document.getElementById('grade').value = '';
+            } else {
+                alert('Please fill in all fields correctly');
+            }
+        }
+
+        function editStudent(index) {
+            const row = document.getElementById('tableBody').children[index];
+            const student = students[index];
+            
+            row.innerHTML = `
+                <td><input type="text" value="${student.studentNumber}"></td>
+                <td><input type="text" value="${student.lastName}"></td>
+                <td><input type="text" value="${student.firstName}"></td>
+                <td><input type="date" value="${student.dateOfBirth}"></td>
+                <td><input type="number" value="${student.grade}"></td>
+                <td>
+                    <button onclick="saveEdit(${index})">Save</button>
+                    <button onclick="renderTable()">Cancel</button>
+                </td>
+            `;
+            row.classList.add('edit-mode');
+        }
+
+        function saveEdit(index) {
+            const row = document.getElementById('tableBody').children[index];
+            const inputs = row.getElementsByTagName('input');
+            
+            students[index] = {
+                studentNumber: inputs[0].value,
+                lastName: inputs[1].value,
+                firstName: inputs[2].value,
+                dateOfBirth: inputs[3].value,
+                grade: parseInt(inputs[4].value)
+            };
+            
+            renderTable();
+        }
+
+        function deleteStudent(index) {
+            if (confirm('Are you sure you want to delete this student?')) {
+                students.splice(index, 1);
+                renderTable();
+            }
+        }
+
+        function updateAverage() {
+            const average = students.reduce((sum, student) => sum + student.grade, 0) / students.length;
+            document.getElementById('averageGrade').textContent = average.toFixed(1);
+        }
+
+        // Initial render
+        renderTable();
+    </script>
+</body>
+</html>
