@@ -3,112 +3,73 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hotel Feedback Form</title>
+    <title>Hotel Feedback Form Project</title>
     <link rel="stylesheet" href="../css/styles.css" />
     <style>
       /* Code Toggle Styles */
-      .code-toggle {
+      #toggleButton {
+        background: #0d6efd;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
         margin: 2rem 0;
       }
 
-      .code-toggle button {
-        background: var(--accent-color);
-        color: white;
-        border: none;
-        padding: 0.5rem 1rem;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-
-      .code-view {
-        display: none;
+      #codeDisplay {
         margin: 1rem 0;
         background: #f8f9fa;
-        padding: 1rem;
+        padding: 1.5rem;
         border-radius: 4px;
         border: 1px solid #dee2e6;
         overflow-x: auto;
-      }
-
-      .code-view.active {
-        display: block;
-      }
-
-      .code-view pre {
-        margin: 0;
         white-space: pre;
-      }
-
-      .code-view code {
         font-family: monospace;
         font-size: 14px;
         line-height: 1.5;
       }
 
-      .form-preview {
-        background: var(--bg-primary);
-        padding: 2rem;
-        border-radius: 8px;
-        box-shadow: var(--card-shadow);
-      }
-
       /* Form Styles */
-      .hotel-form fieldset {
-        margin: 1.5rem 0;
+      .form-preview {
+        margin: 2rem 0;
         padding: 1.5rem;
-        border: 1px solid var(--border-color);
+        border: 1px solid #dee2e6;
         border-radius: 4px;
       }
 
-      .hotel-form legend {
-        padding: 0 0.5rem;
-        font-weight: bold;
-        color: var(--accent-color);
+      fieldset {
+        margin: 1rem 0;
+        padding: 1rem;
+        border: 1px solid #dee2e6;
+        border-radius: 4px;
       }
 
-      .hotel-form label {
+      label {
         display: block;
-        margin: 1rem 0 0.5rem;
-      }
-
-      .hotel-form input[type="text"],
-      .hotel-form input[type="email"],
-      .hotel-form input[type="number"],
-      .hotel-form select,
-      .hotel-form textarea {
-        width: 100%;
-        padding: 0.5rem;
-        border: 1px solid var(--border-color);
-        border-radius: 4px;
-        background: var(--bg-primary);
-        color: var(--text-primary);
-      }
-
-      .hotel-form input[type="radio"],
-      .hotel-form input[type="checkbox"] {
-        margin-right: 0.5rem;
-      }
-
-      .hotel-form .radio-group,
-      .hotel-form .checkbox-group {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
         margin: 0.5rem 0;
       }
 
-      .hotel-form button[type="submit"] {
-        background: var(--accent-color);
+      input[type="text"],
+      input[type="email"],
+      input[type="number"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border: 1px solid #dee2e6;
+        border-radius: 4px;
+      }
+
+      button {
+        background: #0d6efd;
         color: white;
-        padding: 0.75rem 1.5rem;
+        padding: 8px 16px;
         border: none;
         border-radius: 4px;
         cursor: pointer;
-        margin-top: 1rem;
-      }
-
-      .hotel-form button[type="submit"]:hover {
-        opacity: 0.9;
       }
     </style>
   </head>
@@ -116,15 +77,10 @@
     <main>
       <h1>Hotel Feedback Form Project</h1>
       
-      <div class="code-toggle">
-        <button onclick="toggleCode()">View Source Code</button>
-      </div>
+      <button id="toggleButton">View Source Code</button>
+      <pre id="codeDisplay" style="display: none;"></pre>
 
-      <div class="code-view" id="codeView">
-        <pre><code></code></pre>
-      </div>
-
-      <div class="form-preview">
+      <div id="survey-form" class="form-preview">
         <header>
           <h2>Hotel Feedback Form</h2>
           <p>Thank you for staying with us. Please provide feedback on your recent stay.</p>
@@ -227,114 +183,25 @@
     </main>
 
     <script>
-      // Initialize the source code when the page loads
-      document.addEventListener('DOMContentLoaded', function() {
-        const sourceCode = `<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Hotel Feedback Form</title>
-  </head>
-  <body>
-    <header>
-      <h1>Hotel Feedback Form</h1>
-      <p>Thank you for staying with us. Please provide feedback on your recent stay.</p>
-    </header>
-    <main>
-      <form method="POST" action="https://hotel-feedback.freecodecamp.org">
-        <fieldset>
-          <legend>Personal Information</legend>
-          <label for="full-name">Name (required):</label>
-          <input type="text" id="full-name" name="name" placeholder="Ex. John Doe" required size="20">
+      const toggleButton = document.getElementById("toggleButton");
+      const codeDisplay = document.getElementById("codeDisplay");
+      const form = document.getElementById("survey-form");
 
-          <label for="email">Email address (required):</label>
-          <input
-            placeholder="example@email.com"
-            required
-            id="email"
-            type="email"
-            name="email"
-            size="20"
-          />
-          <label for="age">Age (optional):</label>
-          <input type="number" name="age" id="age" min="3" max="100" />
-        </fieldset>
-
-        <fieldset>
-          <legend>Was this your first time at our hotel?</legend>
-          <label for="yes-option">Yes</label>
-          <input id="yes-option" type="radio" name="hotel-stay" />
-          <label for="no-option">No</label>
-          <input id="no-option" type="radio" name="hotel-stay" />
-        </fieldset>
-
-        <fieldset>
-          <legend>Why did you choose to stay at our hotel? (Check all that apply)</legend>
-          <label for="ads">Social Media Ads</label>
-          <input type="checkbox" id="ads" name="ads" value="ads" />
-
-          <label for="recommendation">Personal Recommendation</label>
-          <input
-            type="checkbox"
-            id="recommendation"
-            name="recommendation"
-            value="recommendation"
-          />
-
-          <label for="location">Location</label>
-          <input type="checkbox" id="location" name="location" value="location" />
-
-          <label for="reputation">Reputation</label>
-          <input
-            checked
-            type="checkbox"
-            id="reputation"
-            name="reputation"
-            value="reputation"
-          />
-
-          <label for="price">Price</label>
-          <input type="checkbox" id="price" name="price" value="price" />
-        </fieldset>
-
-        <fieldset>
-          <legend>Ratings</legend>
-          <label for="service">How was the service?</label>
-          <select name="service" id="service">
-            <option value="poor">Poor</option>
-            <option value="satisfactory">Satisfactory</option>
-            <option value="good">Good</option>
-            <option value="very-good">Very Good</option>
-            <option selected value="excellent">Excellent</option>
-          </select>
-
-          <label for="food">How was the food?</label>
-          <select name="food" id="food">
-            <option value="poor">Poor</option>
-            <option value="satisfactory">Satisfactory</option>
-            <option value="good">Good</option>
-            <option value="very-good">Very Good</option>
-            <option selected value="excellent">Excellent</option>
-          </select>
-        </fieldset>
-
-        <label for="comments">Other Comments?</label>
-        <textarea cols="30" rows="10" name="comments" id="comments"></textarea>
-
-        <button type="submit">Submit</button>
-      </form>
-    </main>
-  </body>
-</html>`;
-
-        const codeContent = document.querySelector('#codeView pre code');
-        codeContent.textContent = sourceCode;
-      });
-
-      function toggleCode() {
-        const codeView = document.getElementById('codeView');
-        codeView.classList.toggle('active');
+      function escapeHTML(html) {
+        return html.replace(/</g, "&lt;").replace(/>/g, "&gt;");
       }
+
+      toggleButton.addEventListener("click", () => {
+        if (codeDisplay.style.display === "none") {
+          const formHTML = escapeHTML(form.outerHTML);
+          codeDisplay.innerHTML = formHTML;
+          codeDisplay.style.display = "block";
+          toggleButton.textContent = "Hide Source Code";
+        } else {
+          codeDisplay.style.display = "none";
+          toggleButton.textContent = "View Source Code";
+        }
+      });
     </script>
   </body>
 </html>
