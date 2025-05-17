@@ -1,365 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Web Development Portfolio</title>
-    <link rel="stylesheet" href="css/styles.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Projects Portfolio</title>
     <style>
-      /* Project Card Styles */
-      .project-showcase {
-        margin: 2rem 0;
-      }
-
-      .project-card {
-        background: var(--bg-primary);
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        padding: 2rem;
-        margin-bottom: 2rem;
-        box-shadow: var(--card-shadow);
-      }
-
-      /* Code Toggle Styles */
-      .code-toggle {
-        margin-bottom: 2rem;
-      }
-
-      .code-toggle button {
-        background: #0d6efd;
-        color: white;
-        border: none;
-        padding: 8px 16px;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 14px;
-        margin: 1rem 0;
-      }
-
-      .code-view {
-        display: none;
-        margin: 1rem 0;
-        background: #f8f9fa;
-        padding: 1rem;
-        border-radius: 4px;
-        border: 1px solid #dee2e6;
-      }
-
-      .code-view.active {
-        display: block;
-      }
-
-      /* Updated Hotel Form Styles */
-      .hotel-form {
-        max-width: 500px;
-        margin: 0 auto;
-        background: white;
-        padding: 20px;
-        border-radius: 4px;
-        border: 1px solid #dee2e6;
-      }
-
-      .hotel-form h1 {
-        margin-bottom: 1rem;
-        font-size: 24px;
-      }
-
-      .hotel-form p {
-        margin-bottom: 1.5rem;
-      }
-
-      .hotel-form fieldset {
-        margin: 8px 0;
-        padding: 8px;
-        border: 1px solid #dee2e6;
-        border-radius: 4px;
-      }
-
-      .hotel-form legend {
-        padding: 0 5px;
-        font-weight: 600;
-      }
-
-      .hotel-form .form-row {
-        display: flex;
-        gap: 15px;
-        margin-bottom: 10px;
-      }
-
-      .hotel-form .form-group {
-        flex: 1;
-      }
-
-      .hotel-form label {
-        display: inline-block;
-        margin-bottom: 5px;
-        font-size: 14px;
-      }
-
-      .hotel-form input[type="text"],
-      .hotel-form input[type="email"],
-      .hotel-form input[type="number"],
-      .hotel-form select {
-        width: 100%;
-        padding: 6px 8px;
-        border: 1px solid #dee2e6;
-        border-radius: 4px;
-        font-size: 14px;
-      }
-
-      /* Radio and Checkbox Alignment */
-      .hotel-form .radio-group,
-      .hotel-form .checkbox-group {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        margin: 5px 0;
-      }
-
-      .hotel-form .radio-group label,
-      .hotel-form .checkbox-group label {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        margin: 0;
-        cursor: pointer;
-      }
-
-      .hotel-form input[type="radio"],
-      .hotel-form input[type="checkbox"] {
-        margin: 0;
-        width: auto;
-      }
-
-      .hotel-form textarea {
-        width: 100%;
-        height: 60px;
-        padding: 8px;
-        border: 1px solid #dee2e6;
-        border-radius: 4px;
-        resize: vertical;
-        font-size: 14px;
-      }
-
-      .hotel-form button[type="submit"] {
-        background: #0d6efd;
-        color: white;
-        padding: 8px 16px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 14px;
-      }
-
-      /* Responsive Adjustments */
-      @media (max-width: 768px) {
-        .hotel-form .form-row {
-          flex-direction: column;
-          gap: 10px;
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 15px;
+            line-height: 1.4;
         }
 
-        .hotel-form fieldset {
-          padding: 8px;
+        #toggleButton {
+            background: #0d6efd;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            font-size: 14px;
         }
-      }
+
+        #codeDisplay {
+            display: none;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+            white-space: pre;
+            overflow-x: auto;
+            font-family: monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Form Styling */
+        h1 {
+            font-size: 24px;
+            margin: 0 0 8px 0;
+            font-weight: normal;
+        }
+
+        p {
+            margin: 0 0 20px;
+            color: #666;
+        }
+
+        fieldset {
+            margin: 15px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        legend {
+            padding: 0 5px;
+            font-weight: normal;
+        }
+
+        label {
+            display: block;
+            margin: 8px 0 4px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 4px 6px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: inherit;
+            margin-bottom: 8px;
+        }
+
+        /* Radio and Checkbox alignment */
+        .radio-group label,
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            margin: 4px 0;
+            gap: 6px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin: 0;
+        }
+
+        /* Ratings dropdowns */
+        select {
+            margin-bottom: 12px;
+        }
+
+        /* Comments area */
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 6px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+            font-family: inherit;
+            font-size: inherit;
+            box-sizing: border-box;
+            margin-top: 4px;
+        }
+
+        /* Submit button */
+        button[type="submit"] {
+            background: #0d6efd;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        /* Portfolio grid layout */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .project-card {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+        }
+
+        .project-card h2 {
+            margin-top: 0;
+            font-size: 20px;
+        }
+
+        .project-card a {
+            display: inline-block;
+            background: #0d6efd;
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .project-card a:hover {
+            background: #0b5ed7;
+        }
     </style>
-  </head>
-  <body>
-    <main>
-      <h1>My Web Development Portfolio</h1>
-      <p>Here are some of my recent web development projects:</p>
-
-      <section class="project-showcase">
-        <article class="project-card">
-          <h2>Hotel Feedback Form</h2>
-          <p>An interactive form for collecting hotel guest feedback.</p>
-
-          <div class="code-toggle">
-            <button onclick="toggleCode('hotel-form')">View Source Code</button>
-          </div>
-          <div id="hotel-form-code" class="code-view">
-            <pre><code></code></pre>
-          </div>
-
-          <form class="hotel-form" method="POST" action="https://hotel-feedback.freecodecamp.org">
-            <h1>Hotel Feedback Form</h1>
-            <p>Thank you for staying with us. Please provide feedback on your recent stay.</p>
-
-            <fieldset>
-              <legend>Personal Information</legend>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="full-name">Name (required):</label>
-                  <input type="text" id="full-name" name="name" placeholder="Ex. John Doe" required>
-                </div>
-                <div class="form-group">
-                  <label for="email">Email address (required):</label>
-                  <input type="email" id="email" name="email" placeholder="example@email.com" required>
-                </div>
-                <div class="form-group">
-                  <label for="age">Age (optional):</label>
-                  <input type="number" id="age" name="age" min="3" max="100">
-                </div>
-              </div>
-            </fieldset>
-
-            <fieldset>
-              <legend>Was this your first time at our hotel?</legend>
-              <div class="radio-group">
-                <label>
-                  <input type="radio" name="hotel-stay" value="yes">
-                  Yes
-                </label>
-                <label>
-                  <input type="radio" name="hotel-stay" value="no">
-                  No
-                </label>
-              </div>
-            </fieldset>
-
-            <fieldset>
-              <legend>Why did you choose to stay at our hotel? (Check all that apply)</legend>
-              <div class="checkbox-group">
-                <label>
-                  <input type="checkbox" name="ads" value="ads">
-                  Social Media Ads
-                </label>
-                <label>
-                  <input type="checkbox" name="recommendation" value="recommendation">
-                  Personal Recommendation
-                </label>
-                <label>
-                  <input type="checkbox" name="location" value="location">
-                  Location
-                </label>
-                <label>
-                  <input type="checkbox" name="reputation" value="reputation">
-                  Reputation
-                </label>
-                <label>
-                  <input type="checkbox" name="price" value="price" checked>
-                  Price
-                </label>
-              </div>
-            </fieldset>
-
-            <fieldset>
-              <legend>Ratings</legend>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="service">How was the service?</label>
-                  <select name="service" id="service">
-                    <option value="poor">Poor</option>
-                    <option value="satisfactory">Satisfactory</option>
-                    <option value="good">Good</option>
-                    <option value="very-good">Very Good</option>
-                    <option value="excellent" selected>Excellent</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="food">How was the food?</label>
-                  <select name="food" id="food">
-                    <option value="poor">Poor</option>
-                    <option value="satisfactory">Satisfactory</option>
-                    <option value="good">Good</option>
-                    <option value="very-good">Very Good</option>
-                    <option value="excellent" selected>Excellent</option>
-                  </select>
-                </div>
-              </div>
-            </fieldset>
-
-            <div class="form-group">
-              <label for="comments">Other Comments?</label>
-              <textarea id="comments" name="comments"></textarea>
-            </div>
-
-            <button type="submit">Submit</button>
-          </form>
-        </article>
-      </section>
-
-      <nav class="page-navigation">
-        <a href="index.html">← Back to Index</a>
-      </nav>
-    </main>
-
-    <script>
-      function toggleCode(projectId) {
-        const codeView = document.getElementById(`${projectId}-code`);
-        const codeContent = document.querySelector(`#${projectId}-code pre code`);
-        const sourceCode = `<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Hotel Feedback Form</title>
-  </head>
-  <body>
-    <h1>Hotel Feedback Form</h1>
-    <p>Thank you for staying with us. Please provide feedback on your recent stay.</p>
+</head>
+<body>
+    <h1>Form Projects Portfolio</h1>
     
-    <form method="POST" action="https://hotel-feedback.freecodecamp.org">
-      <fieldset>
-        <legend>Personal Information</legend>
-        <label for="full-name">Name (required):</label>
-        <input type="text" id="full-name" name="name" placeholder="Ex. John Doe" required>
+    <div class="portfolio-grid">
+        <div class="project-card">
+            <h2>Hotel Feedback Form</h2>
+            <p>A comprehensive feedback form for hotel guests to rate their stay experience.</p>
+            <a href="projects/hotel-feedback.html">View Project</a>
+        </div>
 
-        <label for="email">Email address (required):</label>
-        <input type="email" id="email" name="email" placeholder="example@email.com" required>
+        <div class="project-card">
+            <h2>Customer Experience Survey</h2>
+            <p>A general-purpose customer satisfaction survey with various input types.</p>
+            <a href="projects/customer-survey.html">View Project</a>
+        </div>
+    </div>
 
-        <label for="age">Age (optional):</label>
-        <input type="number" id="age" name="age" min="3" max="100">
-      </fieldset>
-
-      <fieldset>
-        <legend>Was this your first time at our hotel?</legend>
-        <label><input type="radio" name="hotel-stay" value="yes"> Yes</label>
-        <label><input type="radio" name="hotel-stay" value="no"> No</label>
-      </fieldset>
-
-      <fieldset>
-        <legend>Why did you choose to stay at our hotel? (Check all that apply)</legend>
-        <label><input type="checkbox" name="ads" value="ads"> Social Media Ads</label>
-        <label><input type="checkbox" name="recommendation" value="recommendation"> Personal Recommendation</label>
-        <label><input type="checkbox" name="location" value="location"> Location</label>
-        <label><input type="checkbox" name="reputation" value="reputation"> Reputation</label>
-        <label><input type="checkbox" name="price" value="price" checked> Price</label>
-      </fieldset>
-
-      <fieldset>
-        <legend>Ratings</legend>
-        <label for="service">How was the service?</label>
-        <select name="service" id="service">
-          <option value="poor">Poor</option>
-          <option value="satisfactory">Satisfactory</option>
-          <option value="good">Good</option>
-          <option value="very-good">Very Good</option>
-          <option value="excellent" selected>Excellent</option>
-        </select>
-
-        <label for="food">How was the food?</label>
-        <select name="food" id="food">
-          <option value="poor">Poor</option>
-          <option value="satisfactory">Satisfactory</option>
-          <option value="good">Good</option>
-          <option value="very-good">Very Good</option>
-          <option value="excellent" selected>Excellent</option>
-        </select>
-      </fieldset>
-
-      <label for="comments">Other Comments?</label>
-      <textarea id="comments" name="comments"></textarea>
-
-      <button type="submit">Submit</button>
-    </form>
-  </body>
-</html>`;
-        
-        if (!codeView.classList.contains('active')) {
-          codeContent.textContent = sourceCode;
-        }
-        codeView.classList.toggle('active');
-      }
-    </script>
-  </body>
+    <a href="#" class="view-source-code">View Source Code</a>
+</body>
 </html>

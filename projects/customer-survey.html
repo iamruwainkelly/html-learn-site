@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Customer Experience Survey</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1, p {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin: 12px 0 6px;
+    }
+    input, select, textarea, button {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+    }
+    .inline-group {
+      margin-bottom: 16px;
+    }
+    .inline-group label {
+      display: inline-block;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="page-navigation">
+    <a href="../index.html">← Back to Index</a>
+  </nav>
+
+  <h1 id="title">Customer Experience Survey</h1>
+  <p id="description">We'd love your feedback to help us improve our services.</p>
+
+  <form id="survey-form">
+    <!-- Name -->
+    <label id="name-label" for="name">Full Name</label>
+    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+    <!-- Email -->
+    <label id="email-label" for="email">Email Address</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+    <!-- Age -->
+    <label id="number-label" for="number">Age (18–99)</label>
+    <input type="number" id="number" name="age" min="18" max="99" placeholder="Enter your age">
+
+    <!-- Role -->
+    <label for="dropdown">Which option best describes your role?</label>
+    <select id="dropdown" name="role" required>
+      <option value="">Select one</option>
+      <option value="student">Student</option>
+      <option value="professional">Professional</option>
+    </select>
+
+    <!-- Recommendation -->
+    <label>Would you recommend us?</label>
+    <div class="inline-group">
+      <label><input type="radio" name="recommend" value="yes" required> Yes</label>
+      <label><input type="radio" name="recommend" value="no"> No</label>
+    </div>
+
+    <!-- Preferences -->
+    <label>What features did you like? (Select all that apply)</label>
+    <div class="inline-group">
+      <label><input type="checkbox" name="feature" value="design"> Design</label>
+      <label><input type="checkbox" name="feature" value="speed"> Speed</label>
+      <label><input type="checkbox" name="feature" value="support"> Support</label>
+    </div>
+
+    <!-- Comments -->
+    <label for="comments">Additional Comments</label>
+    <textarea id="comments" name="comments" rows="5" placeholder="Leave your feedback here..."></textarea>
+
+    <!-- Submit -->
+    <button id="submit" type="submit">Submit</button>
+  </form>
+</body>
+</html>
