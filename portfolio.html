@@ -6,6 +6,7 @@
     <title>My Web Development Portfolio</title>
     <link rel="stylesheet" href="css/styles.css" />
     <style>
+      /* Project Card Styles */
       .project-showcase {
         margin: 2rem 0;
       }
@@ -19,26 +20,25 @@
         box-shadow: var(--card-shadow);
       }
 
-      .project-preview {
-        margin: 1.5rem 0;
-      }
-
-      .code-toggle {
-        margin: 1rem 0;
-      }
-
+      /* Code Toggle Styles */
       .code-toggle button {
-        background: var(--accent-color);
+        background: #0d6efd;
         color: white;
         border: none;
-        padding: 0.5rem 1rem;
+        padding: 8px 16px;
         border-radius: 4px;
         cursor: pointer;
+        font-size: 14px;
+        margin: 1rem 0;
       }
 
       .code-view {
         display: none;
-        margin-top: 1rem;
+        margin: 1rem 0;
+        background: #f8f9fa;
+        padding: 1rem;
+        border-radius: 4px;
+        border: 1px solid #dee2e6;
       }
 
       .code-view.active {
@@ -47,16 +47,26 @@
 
       /* Updated Hotel Form Styles */
       .hotel-form {
-        max-width: 500px;
+        max-width: 600px;
         margin: 0 auto;
-        background: #fff;
+        background: white;
         padding: 20px;
+        border-radius: 4px;
+      }
+
+      .hotel-form h1 {
+        margin-bottom: 1rem;
+        font-size: 24px;
+      }
+
+      .hotel-form p {
+        margin-bottom: 1.5rem;
       }
 
       .hotel-form fieldset {
         margin: 10px 0;
         padding: 10px;
-        border: 1px solid #ccc;
+        border: 1px solid #dee2e6;
         border-radius: 4px;
       }
 
@@ -67,17 +77,16 @@
 
       .hotel-form .form-row {
         display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
+        gap: 15px;
         margin-bottom: 10px;
       }
 
       .hotel-form .form-group {
-        flex: 1 1 200px;
+        flex: 1;
       }
 
       .hotel-form label {
-        display: block;
+        display: inline-block;
         margin-bottom: 5px;
         font-size: 14px;
       }
@@ -85,34 +94,45 @@
       .hotel-form input[type="text"],
       .hotel-form input[type="email"],
       .hotel-form input[type="number"],
-      .hotel-form select,
-      .hotel-form textarea {
+      .hotel-form select {
         width: 100%;
-        padding: 8px;
-        border: 1px solid #ccc;
+        padding: 6px 8px;
+        border: 1px solid #dee2e6;
         border-radius: 4px;
         font-size: 14px;
       }
 
+      /* Radio and Checkbox Alignment */
       .hotel-form .radio-group,
       .hotel-form .checkbox-group {
         display: flex;
-        flex-wrap: wrap;
-        gap: 15px;
+        flex-direction: column;
+        gap: 8px;
         margin: 5px 0;
       }
 
       .hotel-form .radio-group label,
       .hotel-form .checkbox-group label {
-        display: inline-flex;
+        display: flex;
         align-items: center;
-        gap: 5px;
+        gap: 8px;
+        margin: 0;
+        cursor: pointer;
+      }
+
+      .hotel-form input[type="radio"],
+      .hotel-form input[type="checkbox"] {
         margin: 0;
       }
 
       .hotel-form textarea {
+        width: 100%;
         height: 80px;
+        padding: 8px;
+        border: 1px solid #dee2e6;
+        border-radius: 4px;
         resize: vertical;
+        font-size: 14px;
       }
 
       .hotel-form button[type="submit"] {
@@ -125,18 +145,11 @@
         font-size: 14px;
       }
 
-      .hotel-form button[type="submit"]:hover {
-        background: #0b5ed7;
-      }
-
-      /* Make the form more compact on mobile */
+      /* Responsive Adjustments */
       @media (max-width: 768px) {
-        .hotel-form {
-          padding: 15px;
-        }
-
-        .hotel-form .form-group {
-          flex: 1 1 100%;
+        .hotel-form .form-row {
+          flex-direction: column;
+          gap: 10px;
         }
 
         .hotel-form fieldset {
@@ -152,103 +165,101 @@
 
       <section class="project-showcase">
         <article class="project-card">
-          <h2>Hotel Feedback Form</h2>
-          <p>An interactive form for collecting hotel guest feedback</p>
-          
-          <div class="project-preview">
-            <form class="hotel-form" method="POST" action="https://hotel-feedback.freecodecamp.org">
-              <fieldset>
-                <legend>Personal Information</legend>
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="full-name">Name (required):</label>
-                    <input type="text" id="full-name" name="name" placeholder="Ex. John Doe" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Email address (required):</label>
-                    <input type="email" id="email" name="email" placeholder="example@email.com" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="age">Age (optional):</label>
-                    <input type="number" id="age" name="age" min="3" max="100">
-                  </div>
-                </div>
-              </fieldset>
+          <form class="hotel-form" method="POST" action="https://hotel-feedback.freecodecamp.org">
+            <h1>Hotel Feedback Form</h1>
+            <p>Thank you for staying with us. Please provide feedback on your recent stay.</p>
 
-              <fieldset>
-                <legend>Was this your first time at our hotel?</legend>
-                <div class="radio-group">
-                  <label>
-                    <input type="radio" name="hotel-stay" value="yes">
-                    Yes
-                  </label>
-                  <label>
-                    <input type="radio" name="hotel-stay" value="no">
-                    No
-                  </label>
+            <fieldset>
+              <legend>Personal Information</legend>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="full-name">Name (required):</label>
+                  <input type="text" id="full-name" name="name" placeholder="Ex. John Doe" required>
                 </div>
-              </fieldset>
-
-              <fieldset>
-                <legend>Why did you choose to stay at our hotel? (Check all that apply)</legend>
-                <div class="checkbox-group">
-                  <label>
-                    <input type="checkbox" name="ads" value="ads">
-                    Social Media Ads
-                  </label>
-                  <label>
-                    <input type="checkbox" name="recommendation" value="recommendation">
-                    Personal Recommendation
-                  </label>
-                  <label>
-                    <input type="checkbox" name="location" value="location">
-                    Location
-                  </label>
-                  <label>
-                    <input type="checkbox" name="reputation" value="reputation" checked>
-                    Reputation
-                  </label>
-                  <label>
-                    <input type="checkbox" name="price" value="price">
-                    Price
-                  </label>
+                <div class="form-group">
+                  <label for="email">Email address (required):</label>
+                  <input type="email" id="email" name="email" placeholder="example@email.com" required>
                 </div>
-              </fieldset>
-
-              <fieldset>
-                <legend>Ratings</legend>
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="service">How was the service?</label>
-                    <select name="service" id="service">
-                      <option value="poor">Poor</option>
-                      <option value="satisfactory">Satisfactory</option>
-                      <option value="good">Good</option>
-                      <option value="very-good">Very Good</option>
-                      <option value="excellent" selected>Excellent</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="food">How was the food?</label>
-                    <select name="food" id="food">
-                      <option value="poor">Poor</option>
-                      <option value="satisfactory">Satisfactory</option>
-                      <option value="good">Good</option>
-                      <option value="very-good">Very Good</option>
-                      <option value="excellent" selected>Excellent</option>
-                    </select>
-                  </div>
+                <div class="form-group">
+                  <label for="age">Age (optional):</label>
+                  <input type="number" id="age" name="age" min="3" max="100">
                 </div>
-              </fieldset>
-
-              <div class="form-group">
-                <label for="comments">Other Comments?</label>
-                <textarea id="comments" name="comments"></textarea>
               </div>
+            </fieldset>
 
-              <button type="submit">Submit</button>
-            </form>
-          </div>
+            <fieldset>
+              <legend>Was this your first time at our hotel?</legend>
+              <div class="radio-group">
+                <label>
+                  <input type="radio" name="hotel-stay" value="yes">
+                  Yes
+                </label>
+                <label>
+                  <input type="radio" name="hotel-stay" value="no">
+                  No
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Why did you choose to stay at our hotel? (Check all that apply)</legend>
+              <div class="checkbox-group">
+                <label>
+                  <input type="checkbox" name="ads" value="ads">
+                  Social Media Ads
+                </label>
+                <label>
+                  <input type="checkbox" name="recommendation" value="recommendation">
+                  Personal Recommendation
+                </label>
+                <label>
+                  <input type="checkbox" name="location" value="location">
+                  Location
+                </label>
+                <label>
+                  <input type="checkbox" name="reputation" value="reputation">
+                  Reputation
+                </label>
+                <label>
+                  <input type="checkbox" name="price" value="price" checked>
+                  Price
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Ratings</legend>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="service">How was the service?</label>
+                  <select name="service" id="service">
+                    <option value="poor">Poor</option>
+                    <option value="satisfactory">Satisfactory</option>
+                    <option value="good">Good</option>
+                    <option value="very-good">Very Good</option>
+                    <option value="excellent" selected>Excellent</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="food">How was the food?</label>
+                  <select name="food" id="food">
+                    <option value="poor">Poor</option>
+                    <option value="satisfactory">Satisfactory</option>
+                    <option value="good">Good</option>
+                    <option value="very-good">Very Good</option>
+                    <option value="excellent" selected>Excellent</option>
+                  </select>
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="form-group">
+              <label for="comments">Other Comments?</label>
+              <textarea id="comments" name="comments"></textarea>
+            </div>
+
+            <button type="submit">Submit</button>
+          </form>
 
           <div class="code-toggle">
             <button onclick="toggleCode('hotel-form')">View Source Code</button>
@@ -267,6 +278,77 @@
     <script>
       function toggleCode(projectId) {
         const codeView = document.getElementById(`${projectId}-code`);
+        const codeContent = document.querySelector(`#${projectId}-code pre code`);
+        const sourceCode = `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hotel Feedback Form</title>
+  </head>
+  <body>
+    <h1>Hotel Feedback Form</h1>
+    <p>Thank you for staying with us. Please provide feedback on your recent stay.</p>
+    
+    <form method="POST" action="https://hotel-feedback.freecodecamp.org">
+      <fieldset>
+        <legend>Personal Information</legend>
+        <label for="full-name">Name (required):</label>
+        <input type="text" id="full-name" name="name" placeholder="Ex. John Doe" required>
+
+        <label for="email">Email address (required):</label>
+        <input type="email" id="email" name="email" placeholder="example@email.com" required>
+
+        <label for="age">Age (optional):</label>
+        <input type="number" id="age" name="age" min="3" max="100">
+      </fieldset>
+
+      <fieldset>
+        <legend>Was this your first time at our hotel?</legend>
+        <label><input type="radio" name="hotel-stay" value="yes"> Yes</label>
+        <label><input type="radio" name="hotel-stay" value="no"> No</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Why did you choose to stay at our hotel? (Check all that apply)</legend>
+        <label><input type="checkbox" name="ads" value="ads"> Social Media Ads</label>
+        <label><input type="checkbox" name="recommendation" value="recommendation"> Personal Recommendation</label>
+        <label><input type="checkbox" name="location" value="location"> Location</label>
+        <label><input type="checkbox" name="reputation" value="reputation"> Reputation</label>
+        <label><input type="checkbox" name="price" value="price" checked> Price</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Ratings</legend>
+        <label for="service">How was the service?</label>
+        <select name="service" id="service">
+          <option value="poor">Poor</option>
+          <option value="satisfactory">Satisfactory</option>
+          <option value="good">Good</option>
+          <option value="very-good">Very Good</option>
+          <option value="excellent" selected>Excellent</option>
+        </select>
+
+        <label for="food">How was the food?</label>
+        <select name="food" id="food">
+          <option value="poor">Poor</option>
+          <option value="satisfactory">Satisfactory</option>
+          <option value="good">Good</option>
+          <option value="very-good">Very Good</option>
+          <option value="excellent" selected>Excellent</option>
+        </select>
+      </fieldset>
+
+      <label for="comments">Other Comments?</label>
+      <textarea id="comments" name="comments"></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>`;
+        
+        if (!codeView.classList.contains('active')) {
+          codeContent.textContent = sourceCode;
+        }
         codeView.classList.toggle('active');
       }
     </script>
