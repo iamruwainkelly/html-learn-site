@@ -6,6 +6,7 @@
     <title>Hotel Feedback Form</title>
     <link rel="stylesheet" href="../css/styles.css" />
     <style>
+      /* Code Toggle Styles */
       .code-toggle {
         margin: 2rem 0;
       }
@@ -21,11 +22,27 @@
 
       .code-view {
         display: none;
-        margin-top: 1rem;
+        margin: 1rem 0;
+        background: #f8f9fa;
+        padding: 1rem;
+        border-radius: 4px;
+        border: 1px solid #dee2e6;
+        overflow-x: auto;
       }
 
       .code-view.active {
         display: block;
+      }
+
+      .code-view pre {
+        margin: 0;
+        white-space: pre;
+      }
+
+      .code-view code {
+        font-family: monospace;
+        font-size: 14px;
+        line-height: 1.5;
       }
 
       .form-preview {
@@ -100,107 +117,11 @@
       <h1>Hotel Feedback Form Project</h1>
       
       <div class="code-toggle">
-        <button onclick="toggleCode()">Toggle Source Code</button>
+        <button onclick="toggleCode()">View Source Code</button>
       </div>
 
       <div class="code-view" id="codeView">
-        <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-  &lt;head&gt;
-    &lt;meta charset="UTF-8" /&gt;
-    &lt;title&gt;Hotel Feedback Form&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;header&gt;
-      &lt;h1&gt;Hotel Feedback Form&lt;/h1&gt;
-      &lt;p&gt;Thank you for staying with us. Please provide feedback on your recent stay.&lt;/p&gt;
-    &lt;/header&gt;
-    &lt;main&gt;
-      &lt;form method="POST" action="https://hotel-feedback.freecodecamp.org"&gt;
-        &lt;fieldset&gt;
-          &lt;legend&gt;Personal Information&lt;/legend&gt;
-          &lt;label for="full-name"&gt;Name (required):&lt;/label&gt;
-          &lt;input type="text" id="full-name" name="name" placeholder="Ex. John Doe" required size="20"&gt;
-
-          &lt;label for="email"&gt;Email address (required):&lt;/label&gt;
-          &lt;input
-            placeholder="example@email.com"
-            required
-            id="email"
-            type="email"
-            name="email"
-            size="20"
-          /&gt;
-          &lt;label for="age"&gt;Age (optional):&lt;/label&gt;
-          &lt;input type="number" name="age" id="age" min="3" max="100" /&gt;
-        &lt;/fieldset&gt;
-
-        &lt;fieldset&gt;
-          &lt;legend&gt;Was this your first time at our hotel?&lt;/legend&gt;
-          &lt;label for="yes-option"&gt;Yes&lt;/label&gt;
-          &lt;input id="yes-option" type="radio" name="hotel-stay" /&gt;
-          &lt;label for="no-option"&gt;No&lt;/label&gt;
-          &lt;input id="no-option" type="radio" name="hotel-stay" /&gt;
-        &lt;/fieldset&gt;
-
-        &lt;fieldset&gt;
-          &lt;legend&gt;Why did you choose to stay at our hotel? (Check all that apply)&lt;/legend&gt;
-          &lt;label for="ads"&gt;Social Media Ads&lt;/label&gt;
-          &lt;input type="checkbox" id="ads" name="ads" value="ads" /&gt;
-
-          &lt;label for="recommendation"&gt;Personal Recommendation&lt;/label&gt;
-          &lt;input
-            type="checkbox"
-            id="recommendation"
-            name="recommendation"
-            value="recommendation"
-          /&gt;
-
-          &lt;label for="location"&gt;Location&lt;/label&gt;
-          &lt;input type="checkbox" id="location" name="location" value="location" /&gt;
-
-          &lt;label for="reputation"&gt;Reputation&lt;/label&gt;
-          &lt;input
-            checked
-            type="checkbox"
-            id="reputation"
-            name="reputation"
-            value="reputation"
-          /&gt;
-
-          &lt;label for="price"&gt;Price&lt;/label&gt;
-          &lt;input type="checkbox" id="price" name="price" value="price" /&gt;
-        &lt;/fieldset&gt;
-
-        &lt;fieldset&gt;
-          &lt;legend&gt;Ratings&lt;/legend&gt;
-          &lt;label for="service"&gt;How was the service?&lt;/label&gt;
-          &lt;select name="service" id="service"&gt;
-            &lt;option value="poor"&gt;Poor&lt;/option&gt;
-            &lt;option value="satisfactory"&gt;Satisfactory&lt;/option&gt;
-            &lt;option value="good"&gt;Good&lt;/option&gt;
-            &lt;option value="very-good"&gt;Very Good&lt;/option&gt;
-            &lt;option selected value="excellent"&gt;Excellent&lt;/option&gt;
-          &lt;/select&gt;
-
-          &lt;label for="food"&gt;How was the food?&lt;/label&gt;
-          &lt;select name="food" id="food"&gt;
-            &lt;option value="poor"&gt;Poor&lt;/option&gt;
-            &lt;option value="satisfactory"&gt;Satisfactory&lt;/option&gt;
-            &lt;option value="good"&gt;Good&lt;/option&gt;
-            &lt;option value="very-good"&gt;Very Good&lt;/option&gt;
-            &lt;option selected value="excellent"&gt;Excellent&lt;/option&gt;
-          &lt;/select&gt;
-        &lt;/fieldset&gt;
-
-        &lt;label for="comments"&gt;Other Comments?&lt;/label&gt;
-        &lt;textarea cols="30" rows="10" name="comments" id="comments"&gt;&lt;/textarea&gt;
-
-        &lt;button type="submit"&gt;Submit&lt;/button&gt;
-      &lt;/form&gt;
-    &lt;/main&gt;
-  &lt;/body&gt;
-&lt;/html&gt;</code></pre>
+        <pre><code></code></pre>
       </div>
 
       <div class="form-preview">
@@ -306,6 +227,110 @@
     </main>
 
     <script>
+      // Initialize the source code when the page loads
+      document.addEventListener('DOMContentLoaded', function() {
+        const sourceCode = `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hotel Feedback Form</title>
+  </head>
+  <body>
+    <header>
+      <h1>Hotel Feedback Form</h1>
+      <p>Thank you for staying with us. Please provide feedback on your recent stay.</p>
+    </header>
+    <main>
+      <form method="POST" action="https://hotel-feedback.freecodecamp.org">
+        <fieldset>
+          <legend>Personal Information</legend>
+          <label for="full-name">Name (required):</label>
+          <input type="text" id="full-name" name="name" placeholder="Ex. John Doe" required size="20">
+
+          <label for="email">Email address (required):</label>
+          <input
+            placeholder="example@email.com"
+            required
+            id="email"
+            type="email"
+            name="email"
+            size="20"
+          />
+          <label for="age">Age (optional):</label>
+          <input type="number" name="age" id="age" min="3" max="100" />
+        </fieldset>
+
+        <fieldset>
+          <legend>Was this your first time at our hotel?</legend>
+          <label for="yes-option">Yes</label>
+          <input id="yes-option" type="radio" name="hotel-stay" />
+          <label for="no-option">No</label>
+          <input id="no-option" type="radio" name="hotel-stay" />
+        </fieldset>
+
+        <fieldset>
+          <legend>Why did you choose to stay at our hotel? (Check all that apply)</legend>
+          <label for="ads">Social Media Ads</label>
+          <input type="checkbox" id="ads" name="ads" value="ads" />
+
+          <label for="recommendation">Personal Recommendation</label>
+          <input
+            type="checkbox"
+            id="recommendation"
+            name="recommendation"
+            value="recommendation"
+          />
+
+          <label for="location">Location</label>
+          <input type="checkbox" id="location" name="location" value="location" />
+
+          <label for="reputation">Reputation</label>
+          <input
+            checked
+            type="checkbox"
+            id="reputation"
+            name="reputation"
+            value="reputation"
+          />
+
+          <label for="price">Price</label>
+          <input type="checkbox" id="price" name="price" value="price" />
+        </fieldset>
+
+        <fieldset>
+          <legend>Ratings</legend>
+          <label for="service">How was the service?</label>
+          <select name="service" id="service">
+            <option value="poor">Poor</option>
+            <option value="satisfactory">Satisfactory</option>
+            <option value="good">Good</option>
+            <option value="very-good">Very Good</option>
+            <option selected value="excellent">Excellent</option>
+          </select>
+
+          <label for="food">How was the food?</label>
+          <select name="food" id="food">
+            <option value="poor">Poor</option>
+            <option value="satisfactory">Satisfactory</option>
+            <option value="good">Good</option>
+            <option value="very-good">Very Good</option>
+            <option selected value="excellent">Excellent</option>
+          </select>
+        </fieldset>
+
+        <label for="comments">Other Comments?</label>
+        <textarea cols="30" rows="10" name="comments" id="comments"></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+    </main>
+  </body>
+</html>`;
+
+        const codeContent = document.querySelector('#codeView pre code');
+        codeContent.textContent = sourceCode;
+      });
+
       function toggleCode() {
         const codeView = document.getElementById('codeView');
         codeView.classList.toggle('active');
