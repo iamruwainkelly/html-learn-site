@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Web Development Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+      .project-showcase {
+        margin: 2rem 0;
+      }
+
+      .project-card {
+        background: var(--bg-primary);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: var(--card-shadow);
+      }
+
+      .project-preview {
+        margin: 1.5rem 0;
+      }
+
+      .code-toggle {
+        margin: 1rem 0;
+      }
+
+      .code-toggle button {
+        background: var(--accent-color);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .code-view {
+        display: none;
+        margin-top: 1rem;
+      }
+
+      .code-view.active {
+        display: block;
+      }
+
+      /* Hotel Form Specific Styles */
+      .hotel-form {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .hotel-form fieldset {
+        margin: 1rem 0;
+        padding: 1rem;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+      }
+
+      .hotel-form legend {
+        padding: 0 0.5rem;
+        font-weight: bold;
+      }
+
+      .hotel-form .form-row {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .hotel-form .form-group {
+        flex: 1;
+      }
+
+      .hotel-form label {
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .hotel-form input[type="text"],
+      .hotel-form input[type="email"],
+      .hotel-form input[type="number"],
+      .hotel-form select {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+      }
+
+      .hotel-form .radio-group,
+      .hotel-form .checkbox-group {
+        display: flex;
+        gap: 1.5rem;
+        margin: 0.5rem 0;
+      }
+
+      .hotel-form textarea {
+        width: 100%;
+        height: 100px;
+        padding: 0.5rem;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        resize: vertical;
+      }
+
+      .hotel-form button[type="submit"] {
+        background: var(--accent-color);
+        color: white;
+        padding: 0.5rem 1.5rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      @media (max-width: 768px) {
+        .hotel-form .form-row {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>My Web Development Portfolio</h1>
+      <p>Here are some of my recent web development projects:</p>
+
+      <section class="project-showcase">
+        <article class="project-card">
+          <h2>Hotel Feedback Form</h2>
+          <p>An interactive form for collecting hotel guest feedback</p>
+          
+          <div class="project-preview">
+            <form class="hotel-form" method="POST" action="https://hotel-feedback.freecodecamp.org">
+              <fieldset>
+                <legend>Personal Information</legend>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="full-name">Name (required):</label>
+                    <input type="text" id="full-name" name="name" placeholder="Ex. John Doe" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email address (required):</label>
+                    <input type="email" id="email" name="email" placeholder="example@email.com" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="age">Age (optional):</label>
+                    <input type="number" id="age" name="age" min="3" max="100">
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <legend>Was this your first time at our hotel?</legend>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="hotel-stay" value="yes">
+                    Yes
+                  </label>
+                  <label>
+                    <input type="radio" name="hotel-stay" value="no">
+                    No
+                  </label>
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <legend>Why did you choose to stay at our hotel? (Check all that apply)</legend>
+                <div class="checkbox-group">
+                  <label>
+                    <input type="checkbox" name="ads" value="ads">
+                    Social Media Ads
+                  </label>
+                  <label>
+                    <input type="checkbox" name="recommendation" value="recommendation">
+                    Personal Recommendation
+                  </label>
+                  <label>
+                    <input type="checkbox" name="location" value="location">
+                    Location
+                  </label>
+                  <label>
+                    <input type="checkbox" name="reputation" value="reputation" checked>
+                    Reputation
+                  </label>
+                  <label>
+                    <input type="checkbox" name="price" value="price">
+                    Price
+                  </label>
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <legend>Ratings</legend>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="service">How was the service?</label>
+                    <select name="service" id="service">
+                      <option value="poor">Poor</option>
+                      <option value="satisfactory">Satisfactory</option>
+                      <option value="good">Good</option>
+                      <option value="very-good">Very Good</option>
+                      <option value="excellent" selected>Excellent</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="food">How was the food?</label>
+                    <select name="food" id="food">
+                      <option value="poor">Poor</option>
+                      <option value="satisfactory">Satisfactory</option>
+                      <option value="good">Good</option>
+                      <option value="very-good">Very Good</option>
+                      <option value="excellent" selected>Excellent</option>
+                    </select>
+                  </div>
+                </div>
+              </fieldset>
+
+              <div class="form-group">
+                <label for="comments">Other Comments?</label>
+                <textarea id="comments" name="comments"></textarea>
+              </div>
+
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+
+          <div class="code-toggle">
+            <button onclick="toggleCode('hotel-form')">View Source Code</button>
+          </div>
+          <div id="hotel-form-code" class="code-view">
+            <pre><code></code></pre>
+          </div>
+        </article>
+      </section>
+
+      <nav class="page-navigation">
+        <a href="index.html">← Back to Index</a>
+      </nav>
+    </main>
+
+    <script>
+      function toggleCode(projectId) {
+        const codeView = document.getElementById(`${projectId}-code`);
+        codeView.classList.toggle('active');
+      }
+    </script>
+  </body>
+</html>
